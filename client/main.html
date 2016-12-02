@@ -1,16 +1,11 @@
-<div ng-controller="MainCtrl as vm">
-    <div ng-if="!vm.isUser">
-        <login-buttons></login-buttons>
-        }
-    </div>
-    <div ng-if="vm.isUser">
-        <h3>Welcome user!</h3>
-    </div>
+<navigation></navigation>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <campaigns-list></campaigns-list>
+        </div>
+        <div class="col-lg-9">
 
-    <ul>
-        <li ng-repeat="a in vm.b">
-            {{ a.name }}
-            <p>{{ a.description }}</p>
-        </li>
-    </ul>
+        </div>
+    </div>
 </div>

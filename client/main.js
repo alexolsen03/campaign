@@ -3,24 +3,14 @@ import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 import 'bootstrap/dist/css/bootstrap.css';
 
-// collections
-import { Tester } from '../collections/tester';
+// components
+import { name as Navigation } from '../imports/ui/components/navigation/navigation';
+import { name as CampaignsList } from '../imports/ui/components/campaignsList/listCampaigns';
 
 angular.module('campaign', [
     angularMeteor,
     uiRouter,
-    'accounts.ui'
-])
-.controller('MainCtrl', function($scope, $reactive){
-    'ngInject';
-
-    $reactive(this).attach($scope);
-
-    this.isUser = Meteor.userId() ? true : false;
-
-    this.helpers({
-        b() {
-            return Tester.find({});
-        }
-    })
-});
+    'accounts.ui',
+    Navigation,
+    CampaignsList
+]);

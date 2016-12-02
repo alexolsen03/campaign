@@ -1,0 +1,14 @@
+<div class="navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div ng-if="!navigation.isUser">
+                    <login-buttons></login-buttons>
+                </div>
+                <div ng-if="navigation.isUser">
+                    <span class="title3">Campanizer</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

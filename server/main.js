@@ -1,18 +1,18 @@
 import { Meteor } from 'meteor/meteor';
-import { Tester } from '../collections/tester';
+import { Campaign } from '../imports/api/campaigns';
 
 Meteor.startup(() => {
-    if(Tester.find().count() === 0){
-        const b = [{
-            'name': 'alex',
-            'description': 'is a nice guy'
-        },{
-            'name': 'jiyong',
-            'description': 'is a nice girl'
-        }];
+    // if(Campaign.find().count() === 0){
+    //     const b = [{
+    //         'name': 'alex',
+    //         'description': 'is a nice guy'
+    //     },{
+    //         'name': 'jiyong',
+    //         'description': 'is a nice girl'
+    //     }];
 
-        b.forEach((thing) => {
-            Tester.insert(thing);
-        })
-    }
+    //     b.forEach((thing) => {
+    //         Tester.insert(thing);
+    //     })
+    // }
 });
