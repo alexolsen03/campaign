@@ -4,6 +4,10 @@ export const Campaigns = new Mongo.Collection('campaigns');
 
 Campaigns.allow({
     insert(userId, campaign) {
+        campaign.npcs = [];
+        campaign.locations = [];
+        campaign.encounters = [];
+
         return userId && campaign.owner === userId;
     },
     update(userId, campaign, fields, modifier) {
@@ -12,4 +16,17 @@ Campaigns.allow({
     remove(userId, campaign) {
         return userId && campaign.owner === userId;
     }
-})
+});
+
+/*
+
+{
+    cName: '',
+    owner: '',  // Meteor.userId()
+    npcs: []
+}
+
+
+
+
+*/

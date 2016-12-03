@@ -3,8 +3,9 @@ import angularMeteor from 'angular-meteor';
 
 import templateUrl from './listCampaigns.html';
 
-//components
+// components
 import { name as CampaignAdd } from '../campaignAdd/addCampaign';
+
 // collections
 import { Campaigns } from '../../../api/campaigns';
 
@@ -13,6 +14,8 @@ class CampaignsList {
         'ngInject';
 
         $reactive(this).attach($scope);
+
+        this.subscribe('campaigns');
 
         this.helpers({
             campaigns() {
@@ -24,7 +27,9 @@ class CampaignsList {
 
         function toggleCampaign(campaign){
             console.log('toggling selected');
-            this.selected = campaign;
+
+            this.selectedC = campaign;
+            this.onSelectedCChange({$event: {selectedC: this.selectedC}})
         }
     }
 }
@@ -37,5 +42,9 @@ export default angular.module(name, [
     ]).component(name, {
         templateUrl,
         controllerAs: name,
-        controller: CampaignsList
+        controller: CampaignsList,
+        bindings: {
+            selectedC: '<',
+            onSelectedCChange: '&'
+        }
     })
