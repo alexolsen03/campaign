@@ -3,8 +3,8 @@
         <div class="label3">Npcs</div>
         <li ng-repeat="npc in npcsList.campaign.npcs"
               ng-click="npcsList.selectNpc(npc)"
-              ng-class="{'active': npcsList.selectedNpc._id == npc._id}">
-                <span class="label1">{{ npc.name }} - {{ npc._id }}</span>
+              ng-class="{'active': npcsList.selectedNpc.id == npc.id}">
+                <span class="label1">{{ npc.name }}</span>
                 <button ng-click="npcsList.destroyNpc(npc)">destroy</button>
         </li>
         <li>

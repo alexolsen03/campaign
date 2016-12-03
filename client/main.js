@@ -8,6 +8,7 @@ import { name as Navigation } from '../imports/ui/components/navigation/navigati
 import { name as CampaignsList } from '../imports/ui/components/campaignsList/listCampaigns';
 import { name as NpcsList } from '../imports/ui/components/npcsList/listNpcs';
 import { name as NpcAdd } from '../imports/ui/components/npcAdd/addNpc';
+import { name as NpcDetails } from '../imports/ui/components/npcDetails/detailNpc';
 
 class Main {
     constructor($scope, $reactive) {
@@ -26,7 +27,8 @@ export default angular.module(name, [
         Navigation,
         CampaignsList,
         NpcsList,
-        NpcAdd
+        NpcAdd,
+        NpcDetails
     ]).component(name, {
         templateUrl,
         controllerAs: name,

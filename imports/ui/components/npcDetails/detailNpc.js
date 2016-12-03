@@ -32,6 +32,6 @@ export default angular.module(name, [
         controllerAs: name,
         controller: NpcDetails,
         bindings: {
-            selectedC: '<'
+            selectedNpc: '<'
         }
     })
