@@ -2,13 +2,17 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-3 left-panel-container">
-            <campaigns-list selected-c='main.selectedC' on-selected-c-change='main.selectedC = $event.selectedC'></campaigns-list>
-            <npc-add></npc-add>
+            <campaigns-list selected-c='main.selectedC'
+                                    on-selected-c-change='main.selectedC = $event.selectedC'>
+            </campaigns-list>
         </div>
         <div class="col-lg-9">
             <div class="row">
                 <div class="col-lg-3">
-                    <npcs-list selected-c='main.selectedC'></npcs-list>
+                    <npcs-list  selected-c='main.selectedC'
+                                        selected-npc='main.selectedNpc'
+                                        on-selected-npc-change='main.selectedNpc = $event.selectedNpc'>
+                    </npcs-list>
                 </div>
             </div>
         </div>

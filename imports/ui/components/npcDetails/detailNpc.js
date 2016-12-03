@@ -1,40 +1,36 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
-import templateUrl from './addNpc.html';
+import templateUrl from './detailNpc.html';
 
 import { Campaigns } from '../../../api/campaigns';
 
-class NpcAdd {
+class NpcDetails {
     constructor($scope, $reactive) {
         'ngInject';
 
         $reactive(this).attach($scope);
-
-        console.log(this.selectedC);
     }
 
-    submitNpc() {
-        this.npc.owner = Meteor.userId();
-        this.npc.id = Date.now();
-        Campaigns.update({_id: this.selectedC._id}, {$push: {npcs: this.npc}});
+    submitNpcDetails() {
+        this.details.owner = Meteor.userId();
 
         this.reset();
     }
 
     reset() {
-        this.npc = {};
+        this.details = {};
     }
 }
 
-const name = 'npcAdd';
+const name = 'npcDetails';
 
 export default angular.module(name, [
         angularMeteor
     ]).component(name, {
         templateUrl,
         controllerAs: name,
-        controller: NpcAdd,
+        controller: NpcDetails,
         bindings: {
             selectedC: '<'
         }

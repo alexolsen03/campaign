@@ -15,7 +15,7 @@ class Main {
 
         $reactive(this).attach($scope);
 
-        this.selectedC = { boop: 'boop'};
+        this.selectedC = {};
     }
 }
 

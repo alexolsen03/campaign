@@ -27,7 +27,25 @@ class NpcsList {
                     _id: this.getReactively('selectedC', true)._id || []
                 });
             }
-        })
+        });
+
+        this.selectNpc = selectNpc;
+        this.destroyNpc = destroyNpc;
+
+        function selectNpc(npc){
+            console.log('toggling selected npc');
+
+            this.selectedNpc = npc;
+            this.onSelectedNpcChange({$event: {selectedNpc: this.selectedNpc}});
+        }
+
+        function destroyNpc(npc){
+            console.log('destroying');
+            delete npc.$$hashkey;
+            console.log(angular.toJson(npc));
+
+            Campaigns.update({_id: this.selectedC._id}, {$pull: {npcs: { "id": npc.id}}});
+        }
     }
 }
 
@@ -40,6 +58,8 @@ export default angular.module(name, [
         controllerAs: name,
         controller: NpcsList,
         bindings: {
-            selectedC: '<'
+            selectedC: '<',
+            onSelectedNpcChange: '&',
+            selectedNpc: '<'
         }
     })
