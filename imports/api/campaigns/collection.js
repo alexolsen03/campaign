@@ -32,6 +32,8 @@ Campaigns.allow({
 
 {
     name: '',
+    cr: '',
+    type: '',
     description: '',
     alignment: '',
     stats: [],

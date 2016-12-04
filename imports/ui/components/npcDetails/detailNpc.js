@@ -3,6 +3,8 @@ import angularMeteor from 'angular-meteor';
 
 import templateUrl from './detailNpc.html';
 
+import { name as StatBlock } from '../statBlock/statBlock';
+
 import { Campaigns } from '../../../api/campaigns';
 
 class NpcDetails {
@@ -33,7 +35,8 @@ class NpcDetails {
 const name = 'npcDetails';
 
 export default angular.module(name, [
-        angularMeteor
+        angularMeteor,
+        StatBlock
     ]).component(name, {
         templateUrl,
         controllerAs: name,

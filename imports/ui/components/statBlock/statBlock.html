@@ -1,0 +1,58 @@
+<div class='stat-block'>
+
+    <div class="row ability-stats">
+        <div class="col-lg-2">
+            <div class="form-group top">
+                <label for="wis">Wis</label>
+                <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.wisdom"></input>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="form-group top">
+                <label for="int">Int</label>
+                <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.intelligence"></input>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="form-group top">
+                <label for="str">Str</label>
+                <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.strength"></input>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="form-group top">
+                <label for="con">Con</label>
+                <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.constitution"></input>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="form-group top">
+                <label for="dex">Dex</label>
+                <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.dexterity"></input>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="form-group top">
+                <label for="cha">Cha</label>
+                <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.charisma"></input>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="form-group top">
+                <label>AC <span class='slash'>/</span>
+                              Touch <span class='slash'>/</span>
+                              Flat Footed
+                </label>
+                <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.ac.normal"></input><span class='slash'>/</span>
+                <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.ac.touch"></input><span class='slash'>/</span>
+                <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.ac.flatFooted"></input>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <label>Attacks</label>
+        </div>
+    </div>
+</div>

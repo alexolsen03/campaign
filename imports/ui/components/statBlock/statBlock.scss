@@ -1,0 +1,38 @@
+.stat-block {
+    padding: 8px 0px;
+
+    .ability-stats {
+
+    }
+
+    label {
+        display: inline-block;
+        margin-bottom: 1px;
+
+        .slash {
+            font-weight: bold;
+        }
+    }
+
+    input.tiny {
+        width: 50px;
+        display: inline-block;
+    }
+
+    .form-group {
+        &.top {
+            label {
+                display: block;
+
+                .slash {
+                    display: inline-block;
+                    margin-left: 0px;
+                }
+            }
+        }
+        .slash {
+            font-weight: bold;
+            margin-left: 2px;
+        }
+    }
+}
