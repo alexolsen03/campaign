@@ -1,3 +1,15 @@
 .npc-details {
-    background-color: #cacaca;
+    padding: 8px;
+    // background-color: $gray-dk;
+
+    label {
+        font-size: 10px;
+        color: $gray-dk;
+    }
+
+    input {
+        &.tiny {
+            width: 50px;
+        }
+    }
 }

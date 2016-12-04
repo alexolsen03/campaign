@@ -1,5 +1,7 @@
 .list-npcs {
-    li.active{
-        background-color: #f1f1f1;
+    .npc{
+        &.active{
+            background-color: $gray-dk;
+        }
     }
 }

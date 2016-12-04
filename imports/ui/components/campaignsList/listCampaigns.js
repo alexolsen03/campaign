@@ -29,7 +29,9 @@ class CampaignsList {
             console.log('toggling selected');
 
             this.selectedC = campaign;
-            this.onSelectedCChange({$event: {selectedC: this.selectedC}})
+            this.selectedNpc = undefined;
+
+            this.onSelectedCChange({$event: {selectedC: this.selectedC, selectedNpc: undefined}})
         }
     }
 }
@@ -45,6 +47,7 @@ export default angular.module(name, [
         controller: CampaignsList,
         bindings: {
             selectedC: '<',
+            selectedNpc: '<',
             onSelectedCChange: '&'
         }
     })

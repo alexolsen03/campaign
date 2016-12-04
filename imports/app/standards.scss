@@ -23,3 +23,12 @@
         border-top: 1px solid #e1e1e1;
     }
 }
+
+.removal {
+    color: $gray;
+
+    &:hover {
+        color: $removal;
+        cursor: pointer;
+    }
+}

@@ -26,7 +26,18 @@ Campaigns.allow({
     npcs: []
 }
 
+*/
 
+/*
 
+{
+    name: '',
+    description: '',
+    alignment: '',
+    stats: [],
+    motivations: '',
+    loot: '',
+    fears: ''
+}
 
 */

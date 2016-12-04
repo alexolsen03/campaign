@@ -40,10 +40,6 @@ class NpcsList {
         }
 
         function destroyNpc(npc){
-            console.log('destroying');
-            delete npc.$$hashkey;
-            console.log(angular.toJson(npc));
-
             Campaigns.update({_id: this.selectedC._id}, {$pull: {npcs: { "id": npc.id}}});
         }
     }
