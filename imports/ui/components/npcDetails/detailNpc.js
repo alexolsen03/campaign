@@ -12,6 +12,7 @@ class NpcDetails {
         $reactive(this).attach($scope);
 
         this.save = save;
+        this.activeTab = 0;
 
         function save(){
             let index = this.selectedC.npcs.map(function(npc){ return npc.id}).indexOf(this.selectedNpc.id);

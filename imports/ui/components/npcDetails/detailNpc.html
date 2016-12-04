@@ -28,59 +28,68 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="form-group">
-                    <label for="npcDesc">Description</label>
-                    <textarea class="form-control" ng-model="npcDetails.selectedNpc.description" rows="5"></textarea>
-                </div>
-            </div>
-        </div>
+        <uib-tabset active="npcDetails.activeTab">
+            <uib-tab heading="About" index="0">
 
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <label for="npcAffiliations">Affiliated with</label>
-                    <input class="form-control" ng-model="npcDetails.selectedNpc.affiliations"></input>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="npcDesc">Description</label>
+                            <textarea class="form-control" ng-model="npcDetails.selectedNpc.description" rows="5"></textarea>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <label for="npcPosition">Position</label>
-                    <input class="form-control" ng-model="npcDetails.selectedNpc.position"></input>
-                </div>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <label for="npcMotivations">Motivated by</label>
-                    <textarea class="form-control" ng-model="npcDetails.selectedNpc.motivations" rows="4"></textarea>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="npcAffiliations">Affiliated with</label>
+                            <input class="form-control" ng-model="npcDetails.selectedNpc.affiliations"></input>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="npcPosition">Position</label>
+                            <input class="form-control" ng-model="npcDetails.selectedNpc.position"></input>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <label for="npcFears">Afraid of</label>
-                    <textarea class="form-control" ng-model="npcDetails.selectedNpc.fears" rows="4"></textarea>
-                </div>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <label for="npcFriends">Friendly with</label>
-                    <textarea class="form-control" ng-model="npcDetails.selectedNpc.friendlies" rows="3"></textarea>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="npcMotivations">Motivated by</label>
+                            <textarea class="form-control" ng-model="npcDetails.selectedNpc.motivations" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="npcFears">Afraid of</label>
+                            <textarea class="form-control" ng-model="npcDetails.selectedNpc.fears" rows="4"></textarea>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <label for="npcEnemies">Known enemies with</label>
-                    <textarea class="form-control" ng-model="npcDetails.selectedNpc.enemies" rows="3"></textarea>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="npcFriends">Friendly with</label>
+                            <textarea class="form-control" ng-model="npcDetails.selectedNpc.friendlies" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="npcEnemies">Known enemies with</label>
+                            <textarea class="form-control" ng-model="npcDetails.selectedNpc.enemies" rows="3"></textarea>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </uib-tab>
+
+            <uib-tab heading="Battle" index="1">
+                Attacking Stats
+            </uib-tab>
+        </uib-tabset>
 
         <input type="submit" value="Save"></input>
     </form>
