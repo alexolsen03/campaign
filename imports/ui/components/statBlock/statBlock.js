@@ -25,7 +25,7 @@ export default angular.module(name, [
         controllerAs: name,
         controller: StatBlock,
         bindings: {
-            selectedNpc: '<',
+            selectedNpc: '=',
             selectedC: '<'
         }
     })

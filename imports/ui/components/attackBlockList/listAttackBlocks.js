@@ -22,9 +22,23 @@ class AttackBlocksList {
  //        ]);
 
         this.destroyAttackBlock = destroyAttackBlock;
+        this.onAddAttackBlock = onAddAttackBlock;
+        this.showAdd = false;
+        this.toggleShowAdd = toggleShowAdd;
 
         function destroyAttackBlock(block){
             // Campaigns.update({_id: this.selectedC._id}, {$pull: {npcs: { "id": npc.id}}});
+        }
+
+        function onAddAttackBlock(){
+            if(!this.selectedNpc.stats.attacks)
+                this.selectedNpc.stats.attacks = [];
+
+            this.selectedNpc.stats.attacks.push(this.newAttack);
+        }
+
+        function toggleShowAdd(){
+            this.showAdd = !this.showAdd;
         }
     }
 }

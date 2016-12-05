@@ -17,6 +17,8 @@ class NpcAdd {
     submitNpc() {
         this.npc.owner = Meteor.userId();
         this.npc.id = Date.now();
+        this.npc.stats = {};
+
         Campaigns.update({_id: this.selectedC._id}, {$push: {npcs: this.npc}});
 
         this.reset();

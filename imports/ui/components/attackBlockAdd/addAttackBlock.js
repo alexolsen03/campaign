@@ -10,13 +10,21 @@ class AttackBlockAdd {
         'ngInject';
 
         $reactive(this).attach($scope);
-    }
 
-    submitAttack() {
-        this.attack.owner = Meteor.userId();
-        this.attack.id = Date.now();
+        this.submitAttack = submitAttack;
+        this.reset = reset;
 
-        this.new
+        function submitAttack(){
+            this.attack.owner = Meteor.userId();
+            this.attack.id = Date.now();
+
+            this.onAddNewAttack();
+            this.reset();
+        }
+
+        function reset(){
+            this.attack = {}
+        }
     }
 }
 
@@ -29,7 +37,7 @@ export default angular.module(name, [
         controllerAs: name,
         controller: AttackBlockAdd,
         bindings: {
-            newAttack: '<',
+            attack: '=',
             onAddNewAttack: '&'
         }
     })

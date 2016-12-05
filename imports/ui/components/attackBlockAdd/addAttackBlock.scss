@@ -1,6 +1,8 @@
 .add-attack-block {
-    background-color: $gray;
-    padding: 0px 6px;
+    border: 1px solid $gray-dk;
+    border-radius: 3px;
+    padding: 6px;
+    margin-top: 6px;
 
     input[type="radio"] {
         display: inline-block;
