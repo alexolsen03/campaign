@@ -11,8 +11,14 @@
             width: auto;
         }
 
-        label {
+        label, .removal {
             color: #777;
+        }
+
+        .removal {
+            &:hover {
+                color: $removal;
+            }
         }
     }
 }

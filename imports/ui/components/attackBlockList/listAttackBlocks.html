@@ -2,7 +2,7 @@
     <div ng-repeat='attack in attackBlocksList.selectedNpc.stats.attacks'
             class="attack-block">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-11">
                 <div class="form-group">
                         <label>Melee</label>
                         <input ng-model="attack.attackType" class="form-control" type="radio" value="melee"></input>
@@ -11,6 +11,9 @@
                         <label>Touch</label>
                         <input ng-model="attack.attackType" class="form-control" type="radio" value="touch"></input>
                     </div>
+            </div>
+            <div class="col-lg-1">
+                <i ng-click="attackBlocksList.removeAttack(attack)" class="fa fa-times removal"></i>
             </div>
         </div>
 

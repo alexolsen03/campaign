@@ -25,6 +25,7 @@ class AttackBlocksList {
         this.onAddAttackBlock = onAddAttackBlock;
         this.showAdd = false;
         this.toggleShowAdd = toggleShowAdd;
+        this.removeAttack = removeAttack;
 
         function destroyAttackBlock(block){
             // Campaigns.update({_id: this.selectedC._id}, {$pull: {npcs: { "id": npc.id}}});
@@ -39,6 +40,12 @@ class AttackBlocksList {
 
         function toggleShowAdd(){
             this.showAdd = !this.showAdd;
+        }
+
+        function removeAttack(attack){
+            let index = this.selectedNpc.stats.attacks.map(function(a){ return a.id}).indexOf(attack.id);
+
+            this.selectedNpc.stats.attacks.splice(index, 1);
         }
     }
 }
