@@ -1,0 +1,7 @@
+.list-npcs {
+    .npc{
+        &.active{
+            background-color: $gray-dk;
+        }
+    }
+}

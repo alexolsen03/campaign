@@ -1,0 +1,24 @@
+.campaigns-list{
+    &.left-panel{
+        border-top-width: 0px;
+    }
+
+    .label1 {
+        padding: 4px 0px;
+    }
+
+    .label3 {
+        color: #a1a1a1;
+    }
+
+    ul {
+        li {
+            display: block;
+            padding: 4px 0px;
+
+            &.active{
+                background-color: #d1d1d1;
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+.attack-block-list {
+    .attack-block {
+        border: 1px solid $gray-dk;
+        background-color: #FDEDED;
+        border-radius: 3px;
+        padding: 4px;
+        margin-bottom: 6px;
+
+        input[type="radio"] {
+            display: inline-block;
+            width: auto;
+        }
+
+        label, .removal {
+            color: #777;
+        }
+
+        .removal {
+            &:hover {
+                color: $removal;
+            }
+        }
+    }
+}

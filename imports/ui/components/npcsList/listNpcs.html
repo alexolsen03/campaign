@@ -1,0 +1,14 @@
+<div class="list-npcs">
+        <div class="row npc" ng-repeat="npc in npcsList.campaign.npcs"
+              ng-click="npcsList.selectNpc(npc)"
+              ng-class="{'active': npcsList.selectedNpc.id == npc.id}">
+                <div class="col-lg-10">
+                    <span class="label1">{{ npc.name }}</span>
+                </div>
+                <div class="col-lg-2">
+                    <i ng-click="npcsList.destroyNpc(npc)" class="fa fa-times removal"></i>
+                </div>
+        </div>
+
+        <npc-add selected-c='npcsList.selectedC'></npc-add>
+</div>

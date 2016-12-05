@@ -1,16 +1,25 @@
-<div ng-controller="MainCtrl as vm">
-    <div ng-if="!vm.isUser">
-        <login-buttons></login-buttons>
-        }
+<navigation></navigation>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2 left-panel-container">
+            <campaigns-list selected-c='main.selectedC'
+                                        selected-npc='main.selectedNpc'
+                                        on-selected-c-change='main.selectedC = $event.selectedC;
+                                                                                main.selectedNpc = $event.selectedNpc'>
+            </campaigns-list>
+        </div>
+        <div class="col-lg-10">
+            <div class="row">
+                <div class="col-lg-3">
+                    <npcs-list  selected-c='main.selectedC'
+                                        selected-npc='main.selectedNpc'
+                                        on-selected-npc-change='main.selectedNpc = $event.selectedNpc'>
+                    </npcs-list>
+                </div>
+                <div class="col-lg-9">
+                    <npc-details selected-npc='main.selectedNpc' selected-c='main.selectedC'></npc-details>
+                </div>
+            </div>
+        </div>
     </div>
-    <div ng-if="vm.isUser">
-        <h3>Welcome user!</h3>
-    </div>
-
-    <ul>
-        <li ng-repeat="a in vm.b">
-            {{ a.name }}
-            <p>{{ a.description }}</p>
-        </li>
-    </ul>
 </div>
