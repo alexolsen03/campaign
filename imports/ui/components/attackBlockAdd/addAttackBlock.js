@@ -1,31 +1,35 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
-import templateUrl from './statBlock.html';
-
-import { name as AttackBlockList } from '../attackBlockList/listAttackBlocks';
+import templateUrl from './addAttackBlock.html';
 
 import { Campaigns } from '../../../api/campaigns';
 
-class StatBlock {
+class AttackBlockAdd {
     constructor($scope, $reactive) {
         'ngInject';
 
         $reactive(this).attach($scope);
     }
+
+    submitAttack() {
+        this.attack.owner = Meteor.userId();
+        this.attack.id = Date.now();
+
+        this.new
+    }
 }
 
-const name = 'statBlock';
+const name = 'attackBlockAdd';
 
 export default angular.module(name, [
-        angularMeteor,
-        AttackBlockList
+        angularMeteor
     ]).component(name, {
         templateUrl,
         controllerAs: name,
-        controller: StatBlock,
+        controller: AttackBlockAdd,
         bindings: {
-            selectedNpc: '<',
-            selectedC: '<'
+            newAttack: '<',
+            onAddNewAttack: '&'
         }
     })
