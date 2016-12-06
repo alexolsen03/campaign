@@ -1,22 +1,31 @@
 <navigation></navigation>
 <div class="container">
     <div class="row">
-        <div class="col-lg-2 left-panel-container">
-            <campaigns-list selected-c='main.selectedC'
-                                        selected-npc='main.selectedNpc'
-                                        on-selected-c-change='main.selectedC = $event.selectedC;
-                                                                                main.selectedNpc = $event.selectedNpc'>
-            </campaigns-list>
-        </div>
-        <div class="col-lg-10">
+        <div class="col-lg-3 left-panel-container">
+
             <div class="row">
-                <div class="col-lg-3 left-panel-container">
+                <div class="col-lg-12">
+                    <campaigns-list selected-c='main.selectedC'
+                                                selected-npc='main.selectedNpc'
+                                                on-selected-c-change='main.selectedC = $event.selectedC;
+                                                                                        main.selectedNpc = $event.selectedNpc'>
+                    </campaigns-list>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
                     <npcs-list  selected-c='main.selectedC'
                                         selected-npc='main.selectedNpc'
                                         on-selected-npc-change='main.selectedNpc = $event.selectedNpc'>
                     </npcs-list>
                 </div>
-                <div class="col-lg-9">
+            </div>
+
+        </div>
+        <div class="col-lg-9">
+            <div class="row">
+                <div class="col-lg-12">
                     <npc-details selected-npc='main.selectedNpc' selected-c='main.selectedC'></npc-details>
                 </div>
             </div>
