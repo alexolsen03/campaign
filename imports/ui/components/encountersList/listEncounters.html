@@ -1,0 +1,15 @@
+<div class="list-encounters left-panel">
+    <div class="label3">Encounters</div>
+    <div class="row encounter" ng-repeat="enc in encountersList.campaign.encounters"
+          ng-click="encountersList.selectEnc(enc)"
+          ng-class="{'active': encountersList.selectedEnc.id == enc.id}">
+            <div class="col-lg-10">
+                <span class="label1">{{ enc.name }}</span>
+            </div>
+            <div class="col-lg-2">
+                <i ng-click="encountersList.destroyEnc(enc)" class="fa fa-times removal"></i>
+            </div>
+    </div>
+
+    <encounter-add selected-c='encountersList.selectedC'></enc-add>
+</div>

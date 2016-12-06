@@ -10,6 +10,8 @@ import { name as NpcsList } from '../imports/ui/components/npcsList/listNpcs';
 import { name as NpcAdd } from '../imports/ui/components/npcAdd/addNpc';
 import { name as NpcDetails } from '../imports/ui/components/npcDetails/detailNpc';
 
+import { name as EncountersList } from '../imports/ui/components/encountersList/listEncounters';
+
 class Main {
     constructor($scope, $reactive) {
         'ngInject';
@@ -28,7 +30,8 @@ export default angular.module(name, [
         CampaignsList,
         NpcsList,
         NpcAdd,
-        NpcDetails
+        NpcDetails,
+        EncountersList
     ]).component(name, {
         templateUrl,
         controllerAs: name,
