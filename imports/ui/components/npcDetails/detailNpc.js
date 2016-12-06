@@ -70,7 +70,7 @@ function config($stateProvider) {
   'ngInject';
   $stateProvider
     .state('npcDetails', {
-      url: '/campaign/:cId/npcs/:id',
+      url: '/campaign/:cId/npc/:id',
       template: "<npc-details></npc-details>",
     });
 }

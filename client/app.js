@@ -26,8 +26,14 @@ function config($locationProvider, $urlRouterProvider, $stateProvider){
     $stateProvider
         .state('main', {
           url: '/',
-          template: "<div>umm..</div>"
+          template: "<div>nothing</div>"
         });
+
+    $stateProvider
+      .state('campaign', {
+        url: '/campaign/:cId',
+        template: "<div>campaign selected</div>"
+      });
 
     // $stateProvider
     //     .state('npcDetails', {
