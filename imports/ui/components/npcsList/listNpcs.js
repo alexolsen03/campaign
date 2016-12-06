@@ -1,5 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import uiRouter from 'angular-ui-router';
 
 import templateUrl from './listNpcs.html';
 
@@ -9,11 +10,11 @@ import templateUrl from './listNpcs.html';
 import { Campaigns } from '../../../api/campaigns';
 
 class NpcsList {
-    constructor($scope, $reactive) {
+    constructor($scope, $reactive, $state) {
         'ngInject';
 
         $reactive(this).attach($scope);
-        var that = this;
+        this.$state = $state;
 
         this.subscribe('campaign', () => [
             this.selectedC._id
@@ -37,6 +38,8 @@ class NpcsList {
 
             this.selectedNpc = npc;
             this.onSelectedNpcChange({$event: {selectedNpc: this.selectedNpc}});
+
+            this.$state.go('npcDetails');
         }
 
         function destroyNpc(npc){
@@ -48,7 +51,8 @@ class NpcsList {
 const name = 'npcsList';
 
 export default angular.module(name, [
-        angularMeteor
+        angularMeteor,
+        uiRouter
     ]).component(name, {
         templateUrl,
         controllerAs: name,

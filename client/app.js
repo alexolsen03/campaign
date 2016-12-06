@@ -12,4 +12,15 @@ angular.module('campaign', [
     uiBootstrap,
     'accounts.ui',
     main
-]);
+])
+
+    .config(config);
+
+
+function config($locationProvider, $urlRouterProvider){
+    'ngInject';
+
+    $locationProvider.html5Mode(true);
+
+    $urlRouterProvider.otherwise('/main');
+}

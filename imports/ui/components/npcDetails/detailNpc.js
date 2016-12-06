@@ -1,5 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import uiRouter from 'angular-ui-router';
 
 import templateUrl from './detailNpc.html';
 
@@ -36,6 +37,7 @@ const name = 'npcDetails';
 
 export default angular.module(name, [
         angularMeteor,
+        uiRouter,
         StatBlock
     ]).component(name, {
         templateUrl,
@@ -45,4 +47,13 @@ export default angular.module(name, [
             selectedNpc: '<',
             selectedC: '<'
         }
-    })
+    }).config(config);
+
+function config($stateProvider) {
+  'ngInject';
+  $stateProvider
+    .state('npcDetails', {
+      url: '/npcs',
+      template: "<npc-details selected-npc='main.selectedNpc' selected-c='main.selectedC'></npc-details>"
+    });
+}
