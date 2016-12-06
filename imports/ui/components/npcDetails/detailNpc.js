@@ -1,5 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import { Meteor } from 'meteor/meteor';
 import uiRouter from 'angular-ui-router';
 
 import templateUrl from './detailNpc.html';
@@ -9,24 +10,44 @@ import { name as StatBlock } from '../statBlock/statBlock';
 import { Campaigns } from '../../../api/campaigns';
 
 class NpcDetails {
-    constructor($scope, $reactive) {
+    constructor($scope, $reactive, $state, $meteor) {
         'ngInject';
 
         $reactive(this).attach($scope);
 
+        const that = this;
         this.save = save;
         this.activeTab = 0;
 
+        Meteor.subscribe('campaigns', function(){
+            console.log('initing!');
+            that.selectedC = Campaigns.findOne({_id: $state.params.cId});
+            init();
+            $scope.$apply();
+        });
+
+        function init(){
+            let cId = $state.params.cId;
+            let npcId = $state.params.id;
+
+            that.selectedC.npcs.forEach(npc => {
+                if(npc.id === parseInt(npcId)){
+                    that.selectedNpc = npc;
+                }
+            });
+        }
+
+
         function save(){
-            let index = this.selectedC.npcs.map(function(npc){ return npc.id}).indexOf(this.selectedNpc.id);
+            let index = that.selectedC.npcs.map(function(npc){ return npc.id}).indexOf(that.selectedNpc.id);
 
             // the following removes the $$hashkey property
-            this.selectedNpc = angular.toJson(this.selectedNpc);
-            this.selectedNpc = angular.fromJson(this.selectedNpc);
+            that.selectedNpc = angular.toJson(that.selectedNpc);
+            that.selectedNpc = angular.fromJson(that.selectedNpc);
 
-            this.selectedC.npcs[index] = this.selectedNpc;
+            that.selectedC.npcs[index] = that.selectedNpc;
 
-            Meteor.call('updateNpc', this.selectedC._id, this.selectedC.npcs[index]);
+            Meteor.call('updateNpc', that.selectedC._id, that.selectedC.npcs[index]);
         }
     }
 }
@@ -40,18 +61,16 @@ export default angular.module(name, [
     ]).component(name, {
         templateUrl,
         controllerAs: name,
-        controller: NpcDetails,
-        bindings: {
-            selectedNpc: '<',
-            selectedC: '<'
-        }
-    }).config(config);
+        controller: NpcDetails
+    })
+
+    .config(config);
 
 function config($stateProvider) {
   'ngInject';
   $stateProvider
     .state('npcDetails', {
-      url: 'campaign/:cId/npcs/:id',
-      template: "<npc-details selected-npc='main.selectedNpc' selected-c='main.selectedC'></npc-details>"
+      url: '/campaign/:cId/npcs/:id',
+      template: "<npc-details></npc-details>",
     });
 }

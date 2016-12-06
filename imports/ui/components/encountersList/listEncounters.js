@@ -21,8 +21,6 @@ class EncountersList {
             this.selectedC._id
         ]);
 
-        console.log(this.selectedC);
-
         this.helpers({
             campaign() {
                 return Campaigns.findOne({

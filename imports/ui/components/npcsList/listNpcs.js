@@ -16,12 +16,6 @@ class NpcsList {
         $reactive(this).attach($scope);
         this.$state = $state;
 
-        this.subscribe('campaign', () => [
-            this.selectedC._id
-        ]);
-
-        console.log(this.selectedC);
-
         this.helpers({
             campaign() {
                 return Campaigns.findOne({

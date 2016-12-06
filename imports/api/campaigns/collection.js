@@ -1,4 +1,5 @@
 import { Mongo } from 'meteor/mongo';
+import { Meteor } from 'meteor/meteor';
 
 export const Campaigns = new Mongo.Collection('campaigns');
 
@@ -17,6 +18,7 @@ Campaigns.allow({
         return userId && campaign.owner === userId;
     }
 });
+
 
 /*
 

@@ -10,8 +10,6 @@ class NpcAdd {
         'ngInject';
 
         $reactive(this).attach($scope);
-
-        console.log(this.selectedC);
     }
 
     submitNpc() {

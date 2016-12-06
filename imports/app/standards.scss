@@ -30,6 +30,13 @@
         padding: 8px 0px;
         border-top: 1px solid #e1e1e1;
     }
+
+    .panel-title {
+        a {
+            color: $gray-dk;
+            font-size: 12pt;
+        }
+    }
 }
 
 .removal {
@@ -42,8 +49,7 @@
 }
 
 .add-group {
-    input {
-        display: inline-block;
-        width: 65%;
+    button {
+        padding: 6px 8px;
     }
 }

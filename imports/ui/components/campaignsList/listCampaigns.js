@@ -19,6 +19,8 @@ class CampaignsList {
 
         this.subscribe('campaigns');
 
+        console.log(Campaigns.findOne({_id: $state.params.cId}));
+
         this.helpers({
             campaigns() {
                 return Campaigns.find({});
@@ -33,9 +35,11 @@ class CampaignsList {
 
             this.onSelectedCChange({$event: {selectedC: this.selectedC, selectedNpc: undefined}});
 
-            this.$state.go('campaign', {"id": this.selectedC._id});
+            this.$state.go('main', {"id": this.selectedC._id});
         }
     }
+
+
 }
 
 const name = 'campaignsList';
@@ -53,13 +57,4 @@ export default angular.module(name, [
             selectedNpc: '<',
             onSelectedCChange: '&'
         }
-    }).config(config);
-
-function config($stateProvider) {
-  'ngInject';
-  $stateProvider
-    .state('campaign', {
-      url: 'campaign/:id',
-      template: "<div>Selected Campaign...</div>"
-    });
-}
+    })

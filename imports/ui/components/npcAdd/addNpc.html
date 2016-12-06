@@ -1,6 +1,12 @@
 <div class="npc-add left-panel" ng-if="npcAdd.selectedC._id">
     <form class="form-group add-group">
-        <input ng-model="npcAdd.npc.name" placeholder="Create" type="text" class="form-control"/>
-        <button class="btn" ng-click="npcAdd.submitNpc()"><i class="fa fa-plus"></i></button>
+        <div class="row">
+            <div class="col-lg-8">
+                <input ng-model="npcAdd.npc.name" placeholder="Create" type="text" class="form-control"/>
+            </div>
+            <div class="col-lg-4">
+                <button class="btn" ng-click="npcAdd.submitNpc()"><i class="fa fa-plus"></i></button>
+            </div>
+        </div>
     </form>
 </div>
