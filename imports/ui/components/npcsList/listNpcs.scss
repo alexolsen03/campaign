@@ -1,4 +1,11 @@
 .list-npcs {
+    &.left-panel{
+        border-top-width: 0px;
+    }
+
+    .label3 {
+        color: $gray-dk;
+    }
     .npc{
         &.active{
             background-color: $gray-dk;
