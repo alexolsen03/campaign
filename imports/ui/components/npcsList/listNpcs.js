@@ -34,12 +34,10 @@ class NpcsList {
         this.destroyNpc = destroyNpc;
 
         function selectNpc(npc){
-            console.log('toggling selected npc');
-
             this.selectedNpc = npc;
             this.onSelectedNpcChange({$event: {selectedNpc: this.selectedNpc}});
 
-            this.$state.go('npcDetails');
+            this.$state.go('npcDetails', {"cId": this.selectedC._id, "id": this.selectedNpc.id });
         }
 
         function destroyNpc(npc){

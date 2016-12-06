@@ -1,5 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import uiRouter from 'angular-ui-router';
 
 import templateUrl from './listCampaigns.html';
 
@@ -10,10 +11,11 @@ import { name as CampaignAdd } from '../campaignAdd/addCampaign';
 import { Campaigns } from '../../../api/campaigns';
 
 class CampaignsList {
-    constructor($scope, $reactive) {
+    constructor($scope, $reactive, $state) {
         'ngInject';
 
         $reactive(this).attach($scope);
+        this.$state = $state;
 
         this.subscribe('campaigns');
 
@@ -26,12 +28,12 @@ class CampaignsList {
         this.toggleCampaign = toggleCampaign;
 
         function toggleCampaign(campaign){
-            console.log('toggling selected');
-
             this.selectedC = campaign;
             this.selectedNpc = undefined;
 
-            this.onSelectedCChange({$event: {selectedC: this.selectedC, selectedNpc: undefined}})
+            this.onSelectedCChange({$event: {selectedC: this.selectedC, selectedNpc: undefined}});
+
+            this.$state.go('campaign', {"id": this.selectedC._id});
         }
     }
 }
@@ -40,6 +42,7 @@ const name = 'campaignsList';
 
 export default angular.module(name, [
         angularMeteor,
+        uiRouter,
         CampaignAdd
     ]).component(name, {
         templateUrl,
@@ -50,4 +53,13 @@ export default angular.module(name, [
             selectedNpc: '<',
             onSelectedCChange: '&'
         }
-    })
+    }).config(config);
+
+function config($stateProvider) {
+  'ngInject';
+  $stateProvider
+    .state('campaign', {
+      url: 'campaign/:id',
+      template: "<div>Selected Campaign...</div>"
+    });
+}

@@ -26,8 +26,6 @@ class NpcDetails {
 
             this.selectedC.npcs[index] = this.selectedNpc;
 
-
-
             Meteor.call('updateNpc', this.selectedC._id, this.selectedC.npcs[index]);
         }
     }
@@ -53,7 +51,7 @@ function config($stateProvider) {
   'ngInject';
   $stateProvider
     .state('npcDetails', {
-      url: '/npcs',
+      url: 'campaign/:cId/npcs/:id',
       template: "<npc-details selected-npc='main.selectedNpc' selected-c='main.selectedC'></npc-details>"
     });
 }

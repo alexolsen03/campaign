@@ -22,5 +22,5 @@ function config($locationProvider, $urlRouterProvider){
 
     $locationProvider.html5Mode(true);
 
-    $urlRouterProvider.otherwise('/main');
+ //   $urlRouterProvider.otherwise('/main');
 }
