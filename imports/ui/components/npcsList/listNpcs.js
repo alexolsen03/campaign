@@ -4,7 +4,7 @@ import angularMeteor from 'angular-meteor';
 import templateUrl from './listNpcs.html';
 
 //components
-// import { name as CampaignAdd } from '../campaignAdd/addCampaign';
+import { name as CampaignAdd } from '../campaignAdd/addCampaign';
 // collections
 import { Campaigns } from '../../../api/campaigns';
 
@@ -31,6 +31,7 @@ class NpcsList {
 
         this.selectNpc = selectNpc;
         this.destroyNpc = destroyNpc;
+        this.addNpc = addNpc;
 
         function selectNpc(npc){
             console.log('toggling selected npc');
@@ -42,13 +43,20 @@ class NpcsList {
         function destroyNpc(npc){
             Campaigns.update({_id: this.selectedC._id}, {$pull: {npcs: { "id": npc.id}}});
         }
+
+        function addNpc(npc){
+            console.log('adding npc from listNpc');
+            console.log(npc);
+            Campaigns.update({_id: this.selectedC._id}, {$push: {npcs: npc}});
+        }
     }
 }
 
 const name = 'npcsList';
 
 export default angular.module(name, [
-        angularMeteor
+        angularMeteor,
+        CampaignAdd
     ]).component(name, {
         templateUrl,
         controllerAs: name,

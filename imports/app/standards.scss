@@ -47,3 +47,22 @@
         width: 65%;
     }
 }
+
+.uib-tab {
+
+    a {
+        font-size: 12px;
+        color: $gray-dk;
+    }
+
+}
+
+.left-list {
+    background-color: $gray;
+    border-right: 1px solid $gray-dk;
+    padding-top: 8px;
+}
+
+.rel-pos {
+    position: relative;
+}

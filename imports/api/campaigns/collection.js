@@ -43,3 +43,13 @@ Campaigns.allow({
 }
 
 */
+
+/*
+{
+    name: '',
+    cr: '',
+    description: '',
+    npcs: [],
+    location
+}
+*/

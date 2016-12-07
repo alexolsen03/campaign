@@ -38,7 +38,7 @@ class EncountersList {
             console.log('toggling selected enc');
 
             this.selectedEnc = enc;
- //           this.onSelectedEncChange({$event: {selectedEnc: this.selectedEnc}});
+            this.onSelectedEncChange({$event: {selectedEnc: this.selectedEnc}});
         }
 
         function destroyEnc(enc){

@@ -1,0 +1,48 @@
+.detail-encounter {
+
+    label {
+        font-size: 10px;
+        color: $gray-dk;
+    }
+
+    input {
+        &.tiny {
+            width: 50px;
+        }
+    }
+
+    .npc-name {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipses;
+    }
+
+    .left-tab-heading {
+        padding: 8px;
+    }
+
+    .npc-rows, .encounter-npc-rows {
+        font-size: 14px;
+    }
+
+    .rel-pos {
+
+        .npc-rows {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background-color: white;
+            z-index: 999;
+            width: 212px;
+            padding: 8px;
+
+            .row{
+                &:hover {
+                    background-color: $gray;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+}

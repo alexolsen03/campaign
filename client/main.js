@@ -5,12 +5,15 @@ import templateUrl from './main.html';
 
 // components
 import { name as Navigation } from '../imports/ui/components/navigation/navigation';
+
 import { name as CampaignsList } from '../imports/ui/components/campaignsList/listCampaigns';
+
 import { name as NpcsList } from '../imports/ui/components/npcsList/listNpcs';
-import { name as NpcAdd } from '../imports/ui/components/npcAdd/addNpc';
 import { name as NpcDetails } from '../imports/ui/components/npcDetails/detailNpc';
+import { name as NpcAdd } from '../imports/ui/components/npcAdd/addNpc';
 
 import { name as EncountersList } from '../imports/ui/components/encountersList/listEncounters';
+import { name as EncountersDetail } from '../imports/ui/components/encounterDetails/detailEncounter';
 
 class Main {
     constructor($scope, $reactive) {
@@ -29,9 +32,10 @@ export default angular.module(name, [
         Navigation,
         CampaignsList,
         NpcsList,
-        NpcAdd,
         NpcDetails,
-        EncountersList
+        NpcAdd,
+        EncountersList,
+        EncountersDetail
     ]).component(name, {
         templateUrl,
         controllerAs: name,
