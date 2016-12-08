@@ -20,8 +20,26 @@ class Main {
         'ngInject';
 
         $reactive(this).attach($scope);
+        var that = this;
 
         this.selectedC = {};
+        this.npcSave = npcSave;
+
+        this.saves = {
+            "npc": this.npcSave
+        }
+
+        function npcSave(){
+            let index = that.selectedC.npcs.map(function(npc){ return npc.id}).indexOf(that.selectedNpc.id);
+
+            // the following removes the $$hashkey property
+            that.selectedNpc = angular.toJson(that.selectedNpc);
+            that.selectedNpc = angular.fromJson(that.selectedNpc);
+
+            that.selectedC.npcs[index] = that.selectedNpc;
+
+            Meteor.call('updateNpc', that.selectedC._id, that.selectedC.npcs[index]);
+        }
     }
 }
 

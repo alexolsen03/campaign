@@ -48,8 +48,16 @@
         <div class="col-lg-9">
             <div class="row">
                 <div class="col-lg-12">
-                    <npc-details ng-if='main.typeFocus == "npc"' selected-npc='main.selectedNpc' selected-c='main.selectedC'></npc-details>
+
+                    <npc-details ng-if='main.typeFocus == "npc"' selected-npc='main.selectedNpc' selected-c='main.selectedC' save-func='main.npcSave(selectedNpc)'></npc-details>
+
                     <encounter-details ng-if='main.typeFocus=="enc"' selected-enc='main.selectedEnc' selected-c='main.selectedC'></encounter-details>
+
+                    <div ng-if='main.typeFocus == "npc"' class="row">
+                        <div class="col-lg-12 text-right">
+                            <input class="btn" type="submit" value="Save" ng-click="main.saves[main.typeFocus]()"></input>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

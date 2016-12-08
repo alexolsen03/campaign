@@ -88,7 +88,7 @@
 
                     </div>
                     <div class="col-lg-9">
-                    <npc-details selected-npc='encounterDetails.selectedNpc' selected-c='encounterDetails.selectedC'></npc-details>
+                    <npc-details selected-npc='encounterDetails.passInNpc()' selected-c='encounterDetails.selectedC' ng-if="encounterDetails.ok"></npc-details>
                     </div>
 
                 </div>

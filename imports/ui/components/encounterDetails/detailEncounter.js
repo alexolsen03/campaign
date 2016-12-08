@@ -26,10 +26,13 @@ class EncounterDetails {
         this.filterNpcs = filterNpcs;
         this.searchText = "";
         this.selectNpc = selectNpc;
+        this.passInNpc = passInNpc;
 
 
         function save(){
            let index = this.selectedC.encounters.map(function(enc){ return enc.id}).indexOf(this.selectedEnc.id);
+
+           console.log(this.selectedEnc.npcs);
 
 //            the following removes the $$hashkey property
            this.selectedEnc = angular.toJson(this.selectedEnc);
@@ -105,12 +108,48 @@ class EncounterDetails {
                 this.selectedC.npcs.forEach(cNpc => {
                     if(cNpc.id === npc.id){
                         npc = cNpc;
+                        this.fromCampaign = true;
                     }
                 });
+            }else{
+                this.fromCampaign = false;
             }
 
             this.selectedNpc = npc;
+            this.ok = true;
         }
+
+        function passInNpc(){
+
+            if(this.fromCampaign){
+                this.selectedC.npcs.forEach(cNpc => {
+                    if(cNpc.id === this.selectedNpc.id){
+                        console.log(cNpc);
+                        return cNpc;
+                    }
+                });
+            }else{
+                this.selectedEnc.npcs.forEach(eNpc => {
+                    if(eNpc.id === this.selectedNpc.id){
+                        console.log(eNpc);
+                        return eNpc;
+                    }
+                });
+            }
+        }
+
+        // function encNpcSave(selectedNpc){
+        //     console.log('receiving', selectedNpc);
+        //     let index = this.selectedC.npcs.map(function(npc){ return npc.id}).indexOf(selectedNpc.id);
+
+        //     // the following removes the $$hashkey property
+        //     selectedNpc = angular.toJson(selectedNpc);
+        //     selectedNpc = angular.fromJson(selectedNpc);
+
+        //     this.selectedC.npcs[index] = selectedNpc;
+
+        //     Meteor.call('updateNpc', this.selectedC._id, selectedC.npcs[index]);
+        // }
 
         function getNpcIds(){
             let array = [];
