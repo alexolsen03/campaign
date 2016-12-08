@@ -1,8 +1,18 @@
 .detail-encounter {
 
+    .npc-list{
+        border-right: 1px solid $gray-dk;
+    }
+
     label {
         font-size: 10px;
         color: $gray-dk;
+    }
+
+    .row-heading {
+        label {
+            margin-bottom: 2px;
+        }
     }
 
     input {
@@ -23,6 +33,10 @@
 
     .npc-rows, .encounter-npc-rows {
         font-size: 14px;
+
+        &:hover {
+            background-color: $gray-dk;
+        }
     }
 
     .rel-pos {
