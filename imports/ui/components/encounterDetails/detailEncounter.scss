@@ -40,19 +40,21 @@
     }
 
     .rel-pos {
+        top: -15px;
 
         .npc-rows {
             position: absolute;
             top: 0px;
             left: 0px;
-            background-color: white;
+            background-color: $gray;
             z-index: 999;
             width: 212px;
             padding: 8px;
+            box-shadow: 1px 1px 3px #333;
 
             .row{
                 &:hover {
-                    background-color: $gray;
+                    background-color: $gray-dk;
                     cursor: pointer;
                 }
             }

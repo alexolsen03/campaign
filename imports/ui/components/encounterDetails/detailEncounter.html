@@ -40,8 +40,12 @@
             <uib-tab heading="Npcs/Creatures" index="1">
                 <div class="row">
                     <div class="col-lg-3 npc-list">
-                        <div class="form-group">
-                            <input ng-model="encounterDetails.searchText" ng-focus="encounterDetails.toggleFocused()" placeholder="Filter" class="form-control"></input>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <input ng-model="encounterDetails.searchText" ng-focus="encounterDetails.toggleFocused()" placeholder="Filter" class="form-control"></input>
+                                </div>
+                            </div>
                         </div>
 
                         <div ng-show="encounterDetails.focused" class="rel-pos">
