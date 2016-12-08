@@ -48,9 +48,10 @@
                             </div>
                         </div>
 
+                        <!-- ABSOLUTELY POSITIONED FILTER BOX -->
                         <div ng-show="encounterDetails.focused" class="rel-pos">
                             <div class="npc-rows">
-                                <div class="row" ng-repeat="npc in encounterDetails.selectedC.npcs | filter:encounterDetails.filterNpcs()" ng-click="encounterDetails.addNpc(npc)">
+                                <div class="row" ng-repeat="npc in encounterDetails.selectedC.npcs | filter:encounterDetails.filterNpcs()" ng-click="encounterDetails.addNpc(npc, true)">
                                     <div class="col-lg-9">
                                         {{ npc.name }}
                                     </div>
@@ -67,9 +68,12 @@
                             </div>
                         </div>
 
-                        <div class="row encounter-npc-rows" ng-repeat="npc in encounterDetails.selectedEnc.npcs">
+                        <div class="row encounter-npc-rows" ng-repeat="npc in encounterDetails.selectedEnc.npcs" ng-class="{'active': encounterDetails.selectedNpc.id == npc.id}"
+                        ng-click="encounterDetails.selectNpc(npc)">
                             <div class="col-lg-9">
-                                {{ npc.name }}
+                               <div>
+                                        {{ npc.name }}
+                                </div>
                             </div>
                             <div class="col-lg-2">
                                 <i ng-click="encounterDetails.destroyNpc(npc)" class="fa fa-times removal"></i>
@@ -78,13 +82,15 @@
 
                         <div class="row">
                             <div class="col-lg-12">
-                                <npc-add selected-c='encounterDetails.selectedEnc' add-function="encounterDetails.addNpc(npc)"></npc-add>
+                                <npc-add selected-c='encounterDetails.selectedEnc' add-function="encounterDetails.addNpc(npc, false)"></npc-add>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-9">
 
                     </div>
+                    <div class="col-lg-9">
+                    <npc-details selected-npc='encounterDetails.selectedNpc' selected-c='encounterDetails.selectedC'></npc-details>
+                    </div>
+
                 </div>
             </uib-tab>
 

@@ -25,8 +25,6 @@ class NpcDetails {
 
             this.selectedC.npcs[index] = this.selectedNpc;
 
-
-
             Meteor.call('updateNpc', this.selectedC._id, this.selectedC.npcs[index]);
         }
     }

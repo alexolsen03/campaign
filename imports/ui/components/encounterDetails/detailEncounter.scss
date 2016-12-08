@@ -36,6 +36,11 @@
 
         &:hover {
             background-color: $gray-dk;
+            cursor: pointer;
+        }
+
+        &.active {
+            background-color: $gray-dk;
         }
     }
 

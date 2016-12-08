@@ -42,7 +42,7 @@ class EncountersList {
         }
 
         function destroyEnc(enc){
-//            Campaigns.update({_id: this.selectedC._id}, {$pull: {npcs: { "id": npc.id}}});
+            Campaigns.update({_id: this.selectedC._id}, {$pull: {encounters: { "id": enc.id}}});
         }
     }
 }

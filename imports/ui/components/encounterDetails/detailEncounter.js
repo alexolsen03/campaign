@@ -18,11 +18,14 @@ class EncounterDetails {
         this.save = save;
         this.activeTab = 0;
         this.focused = false;
+        this.selectedNpc = null;
+        this.selectedEnc = this.selectedEnc;
         this.addNpc = addNpc;
         this.destroyNpc = destroyNpc;
         this.toggleFocused = toggleFocused;
         this.filterNpcs = filterNpcs;
         this.searchText = "";
+        this.selectNpc = selectNpc;
 
 
         function save(){
@@ -36,12 +39,23 @@ class EncounterDetails {
            Meteor.call('updateEncounter', this.selectedC._id, this.selectedC.encounters[index]);
         }
 
-        function addNpc(npc) {
+        function addNpc(npc, fromCampaign) {
             if(npc){
                 console.log('adding', npc);
                 if(!this.selectedEnc.npcs){
                     this.selectedEnc.npcs = [];
                 }
+
+                // i don't want to duplicate data, so i am just adding a
+                // reference here to the id of the npc from the campaign
+                if(fromCampaign){
+                    npc = {
+                        id: npc.id,
+                        name: npc.name,
+                        fromCampaign: true
+                    }
+                }
+
                 this.selectedEnc.npcs.push(npc);
                 this.save();
 
@@ -86,6 +100,18 @@ class EncounterDetails {
             }
         }
 
+        function selectNpc(npc){
+            if(npc.fromCampaign){
+                this.selectedC.npcs.forEach(cNpc => {
+                    if(cNpc.id === npc.id){
+                        npc = cNpc;
+                    }
+                });
+            }
+
+            this.selectedNpc = npc;
+        }
+
         function getNpcIds(){
             let array = [];
             if(that.selectedEnc){
@@ -95,6 +121,7 @@ class EncounterDetails {
             }else{
                 console.log('no selected encounter yo');
             }
+
             return array;
         }
     }

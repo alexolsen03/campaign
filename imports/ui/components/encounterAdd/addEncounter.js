@@ -15,10 +15,9 @@ class EncounterAdd {
     }
 
     submitEnc() {
-        console.log('creating encounter!');
-
         this.enc.owner = Meteor.userId();
         this.enc.id = Date.now();
+        this.enc.npcs = [];
 
         Campaigns.update({_id: this.selectedC._id}, {$push: {encounters: this.enc}});
 
