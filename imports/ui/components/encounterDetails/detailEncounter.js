@@ -26,8 +26,6 @@ class EncounterDetails {
         this.filterNpcs = filterNpcs;
         this.searchText = "";
         this.selectNpc = selectNpc;
-        this.passInNpc = passInNpc;
-
 
         function save(){
            let index = this.selectedC.encounters.map(function(enc){ return enc.id}).indexOf(this.selectedEnc.id);
@@ -37,6 +35,10 @@ class EncounterDetails {
 //            the following removes the $$hashkey property
            this.selectedEnc = angular.toJson(this.selectedEnc);
            this.selectedEnc = angular.fromJson(this.selectedEnc);
+
+           // this.selectedEnc.npcs.forEach(npc => {
+           //      if(npc.)
+           // })
 
            this.selectedC.encounters[index] = this.selectedEnc;
            Meteor.call('updateEncounter', this.selectedC._id, this.selectedC.encounters[index]);
@@ -119,23 +121,14 @@ class EncounterDetails {
             this.ok = true;
         }
 
-        function passInNpc(){
+        function getNpcFromList(list){
+            let npc = list.filter(function(npc){
+                if(npc.id === this.selectedNpc.id){
+                    return true;
+                }
+            })[0];
 
-            if(this.fromCampaign){
-                this.selectedC.npcs.forEach(cNpc => {
-                    if(cNpc.id === this.selectedNpc.id){
-                        console.log(cNpc);
-                        return cNpc;
-                    }
-                });
-            }else{
-                this.selectedEnc.npcs.forEach(eNpc => {
-                    if(eNpc.id === this.selectedNpc.id){
-                        console.log(eNpc);
-                        return eNpc;
-                    }
-                });
-            }
+            return npc;
         }
 
         // function encNpcSave(selectedNpc){

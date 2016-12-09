@@ -35,6 +35,21 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="location">Loot</label>
+                            <textarea class="form-control" ng-model="encounterDetails.selectedEnc.loot" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="location">Links</label>
+                            <textarea class="form-control" ng-model="encounterDetails.selectedEnc.links" rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+
             </uib-tab>
 
             <uib-tab heading="Npcs/Creatures" index="1">
@@ -88,7 +103,7 @@
 
                     </div>
                     <div class="col-lg-9">
-                    <npc-details selected-npc='encounterDetails.passInNpc()' selected-c='encounterDetails.selectedC' ng-if="encounterDetails.ok"></npc-details>
+                    <npc-details selected-npc='encounterDetails.selectedNpc' selected-c='encounterDetails.selectedC' ng-if="encounterDetails.ok" read-only="encounterDetails.fromCampaign"></npc-details>
                     </div>
 
                 </div>

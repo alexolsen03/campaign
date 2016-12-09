@@ -28,6 +28,7 @@ export default angular.module(name, [
         controller: NpcDetails,
         bindings: {
             selectedNpc: '=',
-            selectedC: '<'
+            selectedC: '<',
+            readOnly: '<'
         }
     })
