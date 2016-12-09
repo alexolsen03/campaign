@@ -57,7 +57,7 @@
                     <div class="col-lg-3 npc-list">
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="form-group">
+                                <div class="form-group filter-box">
                                     <input ng-model="encounterDetails.searchText" ng-focus="encounterDetails.toggleFocused()" placeholder="Filter" class="form-control"></input>
                                 </div>
                             </div>
@@ -95,15 +95,11 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <npc-add selected-c='encounterDetails.selectedEnc' add-function="encounterDetails.addNpc(npc, false)"></npc-add>
-                            </div>
-                        </div>
+                        <npc-add selected-c='encounterDetails.selectedEnc' add-function="encounterDetails.addNpc(npc, false)"></npc-add>
 
                     </div>
-                    <div class="col-lg-9">
-                    <npc-details selected-npc='encounterDetails.selectedNpc' selected-c='encounterDetails.selectedC' ng-if="encounterDetails.ok" read-only="encounterDetails.fromCampaign"></npc-details>
+                    <div class="col-lg-9 detail-tab">
+                        <npc-details selected-npc='encounterDetails.selectedNpc' selected-c='encounterDetails.selectedC' ng-if="encounterDetails.ok" read-only="encounterDetails.fromCampaign"></npc-details>
                     </div>
 
                 </div>

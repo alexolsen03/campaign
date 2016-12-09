@@ -1,24 +1,13 @@
 .campaigns-list{
-    &.left-panel{
-        border-top-width: 0px;
-    }
 
     .label1 {
         padding: 4px 0px;
     }
 
-    .label3 {
-        color: $gray-dk;
-    }
-
-    ul {
-        li {
-            display: block;
-            padding: 4px 0px;
-
-            &.active{
-                background-color: #d1d1d1;
-            }
+    .row {
+        &.active{
+            background-color: #d1d1d1;
         }
     }
+
 }

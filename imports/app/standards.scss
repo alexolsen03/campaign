@@ -42,9 +42,20 @@
 }
 
 .add-group {
+    padding-top: 12px;
+    margin-top: 6px;
+    border-top: 1px solid $gray;
+
     input {
-        display: inline-block;
-        width: 65%;
+        font-size: 10pt;
+        height: 28px;
+    }
+
+    .btn {
+        font-size: 10pt;
+        height: 28px;
+        line-height: 1;
+        padding: 0.5rem;
     }
 }
 
@@ -65,4 +76,8 @@
 
 .rel-pos {
     position: relative;
+}
+
+.detail-tab {
+    border-left: 1px solid $gray-dk;
 }

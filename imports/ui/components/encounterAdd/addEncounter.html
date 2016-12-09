@@ -1,6 +1,12 @@
-<div class="enc-add left-panel" ng-if="encounterAdd.selectedC._id">
+<div class="enc-add" ng-if="encounterAdd.selectedC._id">
     <form class="form-group add-group">
-        <input ng-model="encounterAdd.enc.name" placeholder="Create" type="text" class="form-control"/>
-        <button class="btn" ng-click="encounterAdd.submitEnc()"><i class="fa fa-plus"></i></button>
+        <div class="row">
+            <div class="col-lg-9">
+                <input ng-model="encounterAdd.enc.name" placeholder="Create" type="text" class="form-control"/>
+            </div>
+            <div class="col-lg-3">
+                <button class="btn" ng-click="encounterAdd.submitEnc()"><i class="fa fa-plus"></i></button>
+            </div>
+        </div>
     </form>
 </div>
