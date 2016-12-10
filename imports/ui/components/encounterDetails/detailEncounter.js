@@ -4,7 +4,7 @@ import angularMeteor from 'angular-meteor';
 import templateUrl from './detailEncounter.html';
 
 //components
-import { name as CampaignAdd } from '../campaignAdd/addCampaign';
+import { name as LinkList } from '../linkList/linkList';
 
 import { Campaigns } from '../../../api/campaigns';
 
@@ -163,7 +163,7 @@ const name = 'encounterDetails';
 
 export default angular.module(name, [
         angularMeteor,
-        CampaignAdd
+        LinkList
     ]).component(name, {
         templateUrl,
         controllerAs: name,

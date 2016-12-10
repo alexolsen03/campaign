@@ -63,6 +63,7 @@ class Main {
         }
 
         function addNpc(item){
+            item.stats = {};
             Campaigns.update({_id: this.selectedC._id}, {$push: {npcs: item}});
         }
 
@@ -71,6 +72,8 @@ class Main {
         }
 
         function addEnc(item){
+            item.npcs = [];
+            item.links = [];
             Campaigns.update({_id: this.selectedC._id}, {$push: {encounters: item}});
         }
 
@@ -79,6 +82,7 @@ class Main {
         }
 
         function addLoc(item){
+            item.links = [];
             Campaigns.update({_id: this.selectedC._id}, {$push: {locations: item}});
         }
 

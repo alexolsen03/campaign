@@ -23,6 +23,10 @@ class ListItemAdd {
         this.reset();
     }
 
+    destroyItem() {
+
+    }
+
     reset() {
         this.item = {};
     }

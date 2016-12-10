@@ -81,3 +81,20 @@
 .detail-tab {
     border-left: 1px solid $gray-dk;
 }
+
+.align-wrapper {
+    display: table;
+    width: 100%;
+}
+
+.middle-align {
+    float: none !important;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.bottom-align {
+    float: none !important;
+    display: table-cell;
+    vertical-align: bottom;
+}

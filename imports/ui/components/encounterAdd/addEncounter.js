@@ -10,8 +10,6 @@ class EncounterAdd {
         'ngInject';
 
         $reactive(this).attach($scope);
-
-        console.log(this.selectedC);
     }
 
     submitEnc() {

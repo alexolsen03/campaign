@@ -1,0 +1,14 @@
+.link-list {
+    padding: 8px;
+    border: 1px solid $gray-dk;
+    background-color: $gray;
+    border-radius: 3px;
+
+    .removal {
+        color: $gray-dk;
+
+        &:hover {
+            color: red;
+        }
+    }
+}
