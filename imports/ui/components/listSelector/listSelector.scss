@@ -1,0 +1,7 @@
+.list-selector {
+    .item{
+        &.active {
+            background-color: $gray-dk;
+        }
+    }
+}

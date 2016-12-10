@@ -18,6 +18,11 @@ import { name as EncountersDetail } from '../imports/ui/components/encounterDeta
 import { name as LocationsList } from '../imports/ui/components/locationsList/listLocations';
 import { name as LocationDetail } from '../imports/ui/components/locationDetails/detailLocation';
 
+import { name as ListSelector } from '../imports/ui/components/listSelector/listSelector';
+
+// collections
+import { Campaigns } from '../imports/api/campaigns';
+
 class Main {
     constructor($scope, $reactive) {
         'ngInject';
@@ -27,9 +32,64 @@ class Main {
 
         this.selectedC = {};
         this.npcSave = npcSave;
+        this.resetDependents = resetDependents;
+
+        this.addCampaign = addCampaign;
+        this.destroyCampaign = destroyCampaign;
+        this.addNpc = addNpc;
+        this.destroyNpc = destroyNpc;
+        this.addEnc = addEnc;
+        this.destroyEnc = destroyEnc;
+        this.addLoc = addLoc;
+        this.destroyLoc = destroyLoc;
+
 
         this.saves = {
             "npc": this.npcSave
+        }
+
+        this.helpers({
+            campaigns() {
+                return Campaigns.find({});
+            }
+        });
+
+        function addCampaign(item){
+            Campaigns.insert(item);
+        }
+
+        function destroyCampaign(item){
+            Campaigns.remove({_id: item._id});
+        }
+
+        function addNpc(item){
+            Campaigns.update({_id: this.selectedC._id}, {$push: {npcs: item}});
+        }
+
+        function destroyNpc(item){
+            Campaigns.update({_id: this.selectedC._id}, {$pull: {npcs: { "id": item.id}}});
+        }
+
+        function addEnc(item){
+            Campaigns.update({_id: this.selectedC._id}, {$push: {encounters: item}});
+        }
+
+        function destroyEnc(item){
+            Campaigns.update({_id: this.selectedC._id}, {$pull: {encounters: { "id": item.id}}});
+        }
+
+        function addLoc(item){
+            Campaigns.update({_id: this.selectedC._id}, {$push: {locations: item}});
+        }
+
+        function destroyLoc(item){
+            Campaigns.update({_id: this.selectedC._id}, {$pull: {locations: { "id": item.id}}});
+        }
+
+        function resetDependents(){
+            this.selectedNpc = null;
+            this.selectedEnc = null;
+            this.selectedLoc = null;
         }
 
         function npcSave(){
@@ -58,7 +118,8 @@ export default angular.module(name, [
         EncountersList,
         EncountersDetail,
         LocationsList,
-        LocationDetail
+        LocationDetail,
+        ListSelector
     ]).component(name, {
         templateUrl,
         controllerAs: name,
