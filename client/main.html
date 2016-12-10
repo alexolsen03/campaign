@@ -20,7 +20,8 @@
 
                 <div uib-accordion-group class="panel-default" heading="Campaigns" is-open="true">
 
-                    <list-selector selected-c="main.selectedC" list="main.campaigns" add-function="main.addCampaign(item)" destroy-function="main.destroyCampaign(item)" on-selected-item-change='main.resetDependents();
+                    <list-selector selected-c="main.selectedC" list="main.campaigns" add-function="main.addCampaign(item)" destroy-function="main.destroyCampaign(item)" show-focus="true"
+                    on-selected-item-change='main.resetDependents();
                                     main.selectedC = $event.selectedItem;
                                     main.typeFocus = "na"'></list-selector>
 
@@ -28,7 +29,7 @@
 
                 <div uib-accordion-group class="panel-default" heading="Npcs" is-open="true">
 
-                    <list-selector selected-c="main.selectedC" list="main.selectedC.npcs" add-function="main.addNpc(item)" destroy-function="main.destroyNpc(item)"
+                    <list-selector selected-c="main.selectedC" list="main.selectedC.npcs" add-function="main.addNpc(item)" destroy-function="main.destroyNpc(item)" show-focus="main.typeFocus === 'npc'"
                     on-selected-item-change="main.resetDependents();
                                                                     main.selectedNpc = $event.selectedItem;
                                                                     main.typeFocus = 'npc'"></list-selector>
@@ -37,7 +38,7 @@
 
                 <div uib-accordion-group class="panel-default" heading="Encounters" is-open="true">
 
-                    <list-selector selected-c="main.selectedC" list="main.selectedC.encounters" add-function="main.addEnc(item)" destroy-function="main.destroyEnc(item)"
+                    <list-selector selected-c="main.selectedC" list="main.selectedC.encounters" add-function="main.addEnc(item)" destroy-function="main.destroyEnc(item)" show-focus="main.typeFocus === 'enc'"
                     on-selected-item-change="main.selectedEnc = $event.selectedItem;
                                                                     main.typeFocus = 'enc'"></list-selector>
 
@@ -45,7 +46,7 @@
 
                 <div uib-accordion-group class="panel-default" heading="Locations" is-open="true">
 
-                    <list-selector selected-c="main.selectedC" list="main.selectedC.locations" add-function="main.addLoc(item)" destroy-function="main.destroyLoc(item)"
+                    <list-selector selected-c="main.selectedC" list="main.selectedC.locations" add-function="main.addLoc(item)" destroy-function="main.destroyLoc(item)" show-focus="main.typeFocus === 'loc'"
                     on-selected-item-change="main.selectedLoc = $event.selectedItem;
                                                                     main.typeFocus = 'loc'"></list-selector>
 

@@ -48,6 +48,10 @@ class ListSelector {
         }
 
         function isActive(item){
+            if(!this.showFocus){
+                return false;
+            }
+
             if(item && this.selectedItem){
                 if(item._id){   // is a campaign object
                     return item._id === this.selectedItem._id;
@@ -75,6 +79,7 @@ export default angular.module(name, [
             list: '=',
             onSelectedItemChange: '&',
             addFunction: '&',
-            destroyFunction: '&'
+            destroyFunction: '&',
+            showFocus: '<'
         }
     })
