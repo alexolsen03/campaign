@@ -42,6 +42,18 @@
                     </div>
                 </div uib-accordion-group>
 
+                <div uib-accordion-group class="panel-default" heading="Locations" is-open="true">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <locations-list  selected-c='main.selectedC'
+                                                selected-loc='main.selectedLoc'
+                                                on-selected-loc-change='main.selectedLoc = $event.selectedLoc;
+                                                                                                main.typeFocus = "loc"'>
+                            </locations-list>
+                        </div>
+                    </div>
+                </div uib-accordion-group>
+
             </div uib-accordion>
 
         </div>
@@ -53,11 +65,15 @@
 
                     <encounter-details ng-if='main.typeFocus=="enc"' selected-enc='main.selectedEnc' selected-c='main.selectedC'></encounter-details>
 
+                    <location-details ng-if='main.typeFocus == "loc"' selected-loc='main.selectedLoc' selected-c='main.selectedC'></location-details>
+
                     <div ng-if='main.typeFocus == "npc"' class="row">
                         <div class="col-lg-12 text-right">
                             <input class="btn" type="submit" value="Save" ng-click="main.saves[main.typeFocus]()"></input>
                         </div>
                     </div>
+
+
                 </div>
             </div>
         </div>

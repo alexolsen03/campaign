@@ -1,0 +1,14 @@
+<div class="list-locations">
+    <div class="row location" ng-repeat="loc in locationsList.campaign.locations"
+          ng-click="locationsList.selectLoc(loc)"
+          ng-class="{'active': locationsList.selectedLoc.id == loc.id}">
+            <div class="col-lg-10">
+                <span class="label1">{{ loc.name }}</span>
+            </div>
+            <div class="col-lg-2">
+                <i ng-click="locationsList.destroyLoc(loc)" class="fa fa-times removal"></i>
+            </div>
+    </div>
+
+    <location-add selected-c='locationsList.selectedC'></location-add>
+</div>

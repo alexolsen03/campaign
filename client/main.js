@@ -15,6 +15,9 @@ import { name as NpcAdd } from '../imports/ui/components/npcAdd/addNpc';
 import { name as EncountersList } from '../imports/ui/components/encountersList/listEncounters';
 import { name as EncountersDetail } from '../imports/ui/components/encounterDetails/detailEncounter';
 
+import { name as LocationsList } from '../imports/ui/components/locationsList/listLocations';
+import { name as LocationDetail } from '../imports/ui/components/locationDetails/detailLocation';
+
 class Main {
     constructor($scope, $reactive) {
         'ngInject';
@@ -53,7 +56,9 @@ export default angular.module(name, [
         NpcDetails,
         NpcAdd,
         EncountersList,
-        EncountersDetail
+        EncountersDetail,
+        LocationsList,
+        LocationDetail
     ]).component(name, {
         templateUrl,
         controllerAs: name,
