@@ -1,0 +1,17 @@
+.register {
+
+    .inner-register {
+        background-color: #fff;
+        border: 2px solid $accent;
+        border-radius: 3px;
+        padding: 16px;
+
+        .register-side {
+            border-right: 2px solid $gray;
+        }
+    }
+
+    .title {
+
+    }
+}

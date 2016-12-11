@@ -98,3 +98,8 @@
     display: table-cell;
     vertical-align: bottom;
 }
+
+.btn.primary {
+    background-color: $accent;
+    color: white;
+}

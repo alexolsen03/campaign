@@ -19,18 +19,20 @@ import { name as LocationsList } from '../imports/ui/components/locationsList/li
 import { name as LocationDetail } from '../imports/ui/components/locationDetails/detailLocation';
 
 import { name as ListSelector } from '../imports/ui/components/listSelector/listSelector';
+import { name as Register } from '../imports/ui/components/register/register';
 
 // collections
 import { Campaigns } from '../imports/api/campaigns';
 
 class Main {
-    constructor($scope, $reactive) {
+    constructor($scope, $reactive, data) {
         'ngInject';
 
         $reactive(this).attach($scope);
         var that = this;
-
-        this.selectedC = {};
+        console.log(this);
+        console.log(data);
+        this.selectedC = data.campaign;
         this.npcSave = npcSave;
         this.resetDependents = resetDependents;
 
@@ -123,9 +125,43 @@ export default angular.module(name, [
         EncountersDetail,
         LocationsList,
         LocationDetail,
-        ListSelector
+        ListSelector,
+        Register
     ]).component(name, {
         templateUrl,
         controllerAs: name,
         controller: Main
-    })
+    }).config(config);
+
+function config($stateProvider) {
+  'ngInject';
+
+  $stateProvider.state('campaign', {
+    url: '/:userId/campaign/:id',
+    templateUrl,
+    controllerAs: name,
+    controller: Main,
+    resolve: {
+      data: function($q, $state, $timeout, $stateParams) {
+        var deferred = $q.defer();
+        console.log($stateParams);
+
+        if(Meteor.userId() === null) {
+            $timeout(function() {
+                $state.go('login');
+                deferred.reject();
+            });
+        }else {
+            Meteor.subscribe('campaigns', () => {
+                console.log('subscribed!');
+                console.log(Campaigns.findOne({_id: $stateParams.id}));
+                var selectedC = Campaigns.findOne({_id: $stateParams.id});
+                deferred.resolve({campaign: selectedC});
+            });
+        }
+
+        return deferred.promise;
+      }
+    }
+  });
+}

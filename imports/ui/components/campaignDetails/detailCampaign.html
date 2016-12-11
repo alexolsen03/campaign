@@ -1,0 +1,9 @@
+<navigation></navigation>
+<div class="detail-campaign">
+    <div class="container">
+        <div class="col-lg-4">
+            <list-selector list="campaignDetails.campaigns" add-function="campaignDetails.addCampaign(item)" destroy-function="campaignDetails.destroyCampaign(item)" show-focus="true"
+                    on-selected-item-change='campaignDetails.goToCampaign($event.selectedItem)'></list-selector>
+        </div>
+    </div>
+</div>
