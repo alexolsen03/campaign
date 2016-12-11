@@ -14,12 +14,21 @@ class LinkList {
 
     addLink(){
         console.log('add ', this.link);
+        if(!this.list)
+            this.list = [];
+
+        this.link.id = Date.now();
         this.list.push(this.link);
         this.link = {};
     }
 
     removeLink(link){
         console.log('remove ', link);
+        let after = this.list.filter((el) => {
+            return el.id !== link.id;
+        });
+
+        this.list = after;
     }
 
 }

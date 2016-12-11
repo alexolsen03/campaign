@@ -15,10 +15,7 @@ class CampaignDetails {
         this.$state = $state;
 
         this.subscribe('campaigns');
-
         $rootScope.classy = '';
-
-        console.log('loading campaign details');
 
         this.helpers({
             campaigns() {
@@ -30,6 +27,19 @@ class CampaignDetails {
     goToCampaign(item){
       console.log('go to', item);
       this.$state.go('campaign', {userId: Meteor.userId(), id: item._id});
+    }
+
+    remove(campaign){
+      console.log('removing...');
+      Campaigns.remove({_id: campaign._id});
+    }
+
+    add(){
+      this.newC.owner = Meteor.userId();
+      console.log('adding...');
+
+      Campaigns.insert(this.newC);
+      this.newC = {};
     }
 }
 

@@ -34,7 +34,7 @@ class Navigation {
   }
 
   goHome() {
-    this.$state.go('campaigns');
+    this.$state.go('campaigns', {userId: Meteor.userId()});
   }
 
   logout() {
