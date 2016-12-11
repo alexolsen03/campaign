@@ -19,7 +19,9 @@ class NpcAdd {
         this.npc.id = Date.now();
         this.npc.stats = {};
 
-        Campaigns.update({_id: this.selectedC._id}, {$push: {npcs: this.npc}});
+ //       Campaigns.update({_id: this.selectedC._id}, {$push: {npcs: this.npc}});
+
+        this.addFunction({npc: this.npc});
 
         this.reset();
     }
@@ -38,6 +40,7 @@ export default angular.module(name, [
         controllerAs: name,
         controller: NpcAdd,
         bindings: {
-            selectedC: '<'
+            selectedC: '<',
+            addFunction: '&'
         }
     })

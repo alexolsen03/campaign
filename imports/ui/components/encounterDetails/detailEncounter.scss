@@ -1,0 +1,70 @@
+.detail-encounter {
+
+    .filter-box {
+        padding-top: 12px;
+        margin-bottom: 4px;
+    }
+
+    label {
+        font-size: 10px;
+        color: $gray-dk;
+    }
+
+    .row-heading {
+        label {
+            margin-bottom: 2px;
+        }
+    }
+
+    input {
+        &.tiny {
+            width: 50px;
+        }
+    }
+
+    .npc-name {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipses;
+    }
+
+    .left-tab-heading {
+        padding: 8px;
+    }
+
+    .npc-rows, .encounter-npc-rows {
+        font-size: 14px;
+
+        &:hover {
+            background-color: $gray-dk;
+            cursor: pointer;
+        }
+
+        &.active {
+            background-color: $gray-dk;
+        }
+    }
+
+    .rel-pos {
+        top: -2px;
+
+        .npc-rows {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background-color: $gray;
+            z-index: 999;
+            width: 212px;
+            padding: 8px;
+            box-shadow: 1px 1px 3px #333;
+
+            .row{
+                &:hover {
+                    background-color: $gray-dk;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+}

@@ -13,22 +13,7 @@ class NpcDetails {
 
         $reactive(this).attach($scope);
 
-        this.save = save;
         this.activeTab = 0;
-
-        function save(){
-            let index = this.selectedC.npcs.map(function(npc){ return npc.id}).indexOf(this.selectedNpc.id);
-
-            // the following removes the $$hashkey property
-            this.selectedNpc = angular.toJson(this.selectedNpc);
-            this.selectedNpc = angular.fromJson(this.selectedNpc);
-
-            this.selectedC.npcs[index] = this.selectedNpc;
-
-
-
-            Meteor.call('updateNpc', this.selectedC._id, this.selectedC.npcs[index]);
-        }
     }
 }
 
@@ -42,7 +27,8 @@ export default angular.module(name, [
         controllerAs: name,
         controller: NpcDetails,
         bindings: {
-            selectedNpc: '<',
-            selectedC: '<'
+            selectedNpc: '=',
+            selectedC: '<',
+            readOnly: '<'
         }
     })

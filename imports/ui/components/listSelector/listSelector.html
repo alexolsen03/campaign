@@ -1,0 +1,14 @@
+<div class="list-selector">
+    <div class="row item" ng-repeat="item in listSelector.list"
+          ng-click="listSelector.selectItem(item)"
+          ng-class="{ 'active': listSelector.isActive(item) }">
+            <div class="col-lg-10">
+                <span class="label1">{{ item.name || item.cName }}</span>
+            </div>
+            <div class="col-lg-2">
+                <i ng-click="listSelector.destroyItem(item)" class="fa fa-times removal"></i>
+            </div>
+    </div>
+
+    <list-item-add selected-c='listSelector.selectedC' add-function="listSelector.innerAddItem(item)"></list-item-add>
+</div>

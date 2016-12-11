@@ -1,0 +1,114 @@
+<div class="detail-encounter">
+    <form ng-submit="encounterDetails.save()">
+
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="form-group">
+                    <label for="name">Title</label>
+                    <input class="form-control" ng-model="encounterDetails.selectedEnc.name"></input>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group">
+                    <label for="cr">CR</label>
+                    <input class="form-control tiny" ng-model="encounterDetails.selectedEnc.cr"></input>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input class="form-control" ng-model="encounterDetails.selectedEnc.location"></input>
+                </div>
+            </div>
+        </div>
+
+        <uib-tabset active="npcDetails.activeTab">
+
+            <uib-tab heading="About" index="0">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="location">Description</label>
+                            <textarea class="form-control" ng-model="encounterDetails.selectedEnc.description" rows="7"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="location">Loot</label>
+                            <textarea class="form-control" ng-model="encounterDetails.selectedEnc.loot" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <link-list list="encounterDetails.selectedEnc.links"></link-list>
+                    </div>
+                </div>
+
+            </uib-tab>
+
+            <uib-tab heading="Npcs/Creatures" index="1">
+                <div class="row">
+                    <div class="col-lg-3 npc-list">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group filter-box">
+                                    <input ng-model="encounterDetails.searchText" ng-focus="encounterDetails.toggleFocused()" placeholder="Filter" class="form-control"></input>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ABSOLUTELY POSITIONED FILTER BOX -->
+                        <div ng-show="encounterDetails.focused" class="rel-pos">
+                            <div class="npc-rows">
+                                <div class="row" ng-repeat="npc in encounterDetails.selectedC.npcs | filter:encounterDetails.filterNpcs()" ng-click="encounterDetails.addNpc(npc, true)">
+                                    <div class="col-lg-9">
+                                        {{ npc.name }}
+                                    </div>
+                                    <div class="col-lg-3">
+                                        {{ npc.cr }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row row-heading">
+                            <div class="col-lg-12">
+                                <label>Name</label>
+                            </div>
+                        </div>
+
+                        <div class="row encounter-npc-rows" ng-repeat="npc in encounterDetails.selectedEnc.npcs" ng-class="{'active': encounterDetails.selectedNpc.id == npc.id}"
+                        ng-click="encounterDetails.selectNpc(npc)">
+                            <div class="col-lg-9">
+                               <div>
+                                        {{ npc.name }}
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <i ng-click="encounterDetails.destroyNpc(npc)" class="fa fa-times removal"></i>
+                            </div>
+                        </div>
+
+                        <npc-add selected-c='encounterDetails.selectedEnc' add-function="encounterDetails.addNpc(npc, false)"></npc-add>
+
+                    </div>
+                    <div class="col-lg-9 detail-tab">
+                        <npc-details selected-npc='encounterDetails.selectedNpc' selected-c='encounterDetails.selectedC' ng-if="encounterDetails.ok" read-only="encounterDetails.fromCampaign"></npc-details>
+                    </div>
+
+                </div>
+            </uib-tab>
+
+        </uib-tabset>
+
+        <div class="row">
+            <div class="col-lg-12 text-right">
+                <input class="btn" type="submit" value="Save"></input>
+            </div>
+        </div>
+
+    </form>
+</div>

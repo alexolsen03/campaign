@@ -1,129 +1,126 @@
 <div class="npc-details">
-    <form ng-if="npcDetails.selectedNpc" ng-submit="npcDetails.save()">
-        <div class="row">
-            <div class="col-lg-10">
-                <div class="row">
-                    <div class="col-lg-5">
-                        <div class="form-group">
-                            <label for="npcName">Name</label>
-                            <input class="form-control" ng-model="npcDetails.selectedNpc.name"></input>
+    <fieldset ng-disabled="npcDetails.readOnly">
+        <form ng-if="npcDetails.selectedNpc" ng-submit="npcDetails.save()">
+            <div class="row">
+                <div class="col-lg-10">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="form-group">
+                                <label for="npcName">Name</label>
+                                <input class="form-control" ng-model="npcDetails.selectedNpc.name"></input>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="form-group">
+                                <label for="alignment">Alignment</label>
+                                <input class="form-control tiny" ng-model="npcDetails.selectedNpc.alignment"></input>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="form-group">
+                                <label for="cr">CR</label>
+                                <input class="form-control tiny" ng-model="npcDetails.selectedNpc.cr"></input>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label for="type">Type</label>
+                                <input class="form-control" ng-model="npcDetails.selectedNpc.type"></input>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-2">
-                        <div class="form-group">
-                            <label for="alignment">Alignment</label>
-                            <input class="form-control tiny" ng-model="npcDetails.selectedNpc.alignment"></input>
-                        </div>
+
+                    <uib-tabset active="npcDetails.activeTab">
+                        <uib-tab heading="About" index="0">
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="npcDesc">Description</label>
+                                        <textarea class="form-control" ng-model="npcDetails.selectedNpc.description" rows="5"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="npcAffiliations">Affiliated with</label>
+                                        <input class="form-control" ng-model="npcDetails.selectedNpc.affiliations"></input>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="npcPosition">Position</label>
+                                        <input class="form-control" ng-model="npcDetails.selectedNpc.position"></input>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="npcMotivations">Motivated by</label>
+                                        <textarea class="form-control" ng-model="npcDetails.selectedNpc.motivations" rows="4"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="npcFears">Afraid of</label>
+                                        <textarea class="form-control" ng-model="npcDetails.selectedNpc.fears" rows="4"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="npcFriends">Friendly with</label>
+                                        <textarea class="form-control" ng-model="npcDetails.selectedNpc.friendlies" rows="3"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="npcEnemies">Known enemies with</label>
+                                        <textarea class="form-control" ng-model="npcDetails.selectedNpc.enemies" rows="3"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </uib-tab>
+
+                        <uib-tab heading="Battle" index="1">
+                            <stat-block selected-npc="npcDetails.selectedNpc"></stat-block>
+                        </uib-tab>
+                    </uib-tabset>
+
+                </div>
+                <div class="col-lg-2">
+                    <div class="form-group top">
+                        <label for="wis">Wis</label>
+                        <input class="form-control tiny" ng-model="npcDetails.selectedNpc.stats.wisdom"></input>
                     </div>
-                    <div class="col-lg-2">
-                        <div class="form-group">
-                            <label for="cr">CR</label>
-                            <input class="form-control tiny" ng-model="npcDetails.selectedNpc.cr"></input>
-                        </div>
+                    <div class="form-group top">
+                        <label for="int">Int</label>
+                        <input class="form-control tiny" ng-model="npcDetails.selectedNpc.stats.intelligence"></input>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label for="type">Type</label>
-                            <input class="form-control" ng-model="npcDetails.selectedNpc.type"></input>
-                        </div>
+                    <div class="form-group top">
+                        <label for="str">Str</label>
+                        <input class="form-control tiny" ng-model="npcDetails.selectedNpc.stats.strength"></input>
+                    </div>
+                    <div class="form-group top">
+                        <label for="con">Con</label>
+                        <input class="form-control tiny" ng-model="npcDetails.selectedNpc.stats.constitution"></input>
+                    </div>
+                    <div class="form-group top">
+                        <label for="dex">Dex</label>
+                        <input class="form-control tiny" ng-model="npcDetails.selectedNpc.stats.dexterity"></input>
+                    </div>
+                    <div class="form-group top">
+                        <label for="cha">Cha</label>
+                        <input class="form-control tiny" ng-model="npcDetails.selectedNpc.stats.charisma"></input>
                     </div>
                 </div>
-
-                <uib-tabset active="npcDetails.activeTab">
-                    <uib-tab heading="About" index="0">
-
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <label for="npcDesc">Description</label>
-                                    <textarea class="form-control" ng-model="npcDetails.selectedNpc.description" rows="5"></textarea>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="npcAffiliations">Affiliated with</label>
-                                    <input class="form-control" ng-model="npcDetails.selectedNpc.affiliations"></input>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="npcPosition">Position</label>
-                                    <input class="form-control" ng-model="npcDetails.selectedNpc.position"></input>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="npcMotivations">Motivated by</label>
-                                    <textarea class="form-control" ng-model="npcDetails.selectedNpc.motivations" rows="4"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="npcFears">Afraid of</label>
-                                    <textarea class="form-control" ng-model="npcDetails.selectedNpc.fears" rows="4"></textarea>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="npcFriends">Friendly with</label>
-                                    <textarea class="form-control" ng-model="npcDetails.selectedNpc.friendlies" rows="3"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="npcEnemies">Known enemies with</label>
-                                    <textarea class="form-control" ng-model="npcDetails.selectedNpc.enemies" rows="3"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </uib-tab>
-
-                    <uib-tab heading="Battle" index="1">
-                        <stat-block selected-npc="npcDetails.selectedNpc"></stat-block>
-                    </uib-tab>
-                </uib-tabset>
-
             </div>
-            <div class="col-lg-2">
-                <div class="form-group top">
-                    <label for="wis">Wis</label>
-                    <input class="form-control tiny" ng-model="npcDetails.selectedNpc.stats.wisdom"></input>
-                </div>
-                <div class="form-group top">
-                    <label for="int">Int</label>
-                    <input class="form-control tiny" ng-model="npcDetails.selectedNpc.stats.intelligence"></input>
-                </div>
-                <div class="form-group top">
-                    <label for="str">Str</label>
-                    <input class="form-control tiny" ng-model="npcDetails.selectedNpc.stats.strength"></input>
-                </div>
-                <div class="form-group top">
-                    <label for="con">Con</label>
-                    <input class="form-control tiny" ng-model="npcDetails.selectedNpc.stats.constitution"></input>
-                </div>
-                <div class="form-group top">
-                    <label for="dex">Dex</label>
-                    <input class="form-control tiny" ng-model="npcDetails.selectedNpc.stats.dexterity"></input>
-                </div>
-                <div class="form-group top">
-                    <label for="cha">Cha</label>
-                    <input class="form-control tiny" ng-model="npcDetails.selectedNpc.stats.charisma"></input>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 text-right">
-                <input class="btn" type="submit" value="Save"></input>
-            </div>
-        </div>
-    </form>
+        </form>
+    </fieldset>
 </div>

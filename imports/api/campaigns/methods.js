@@ -8,6 +8,14 @@ export function updateNpc(cId, npc){
                                                 {$set: { 'npcs.$': npc }});
 }
 
+export function updateEncounter(cId, enc){
+    console.log('updating' + cId + ' ' + enc.id);
+    Campaigns.update(   {$and: [{_id: cId,
+                                                "encounters.id": enc.id}]},
+                                                {$set: { 'encounters.$': enc }});
+}
+
 Meteor.methods({
-    updateNpc
+    updateNpc,
+    updateEncounter
 });

@@ -1,10 +1,9 @@
-<div class="campaigns-list left-panel">
-    <ul>
-        <div class="label3">Campaigns</div>
-        <li ng-repeat="campaign in campaignsList.campaigns"
+<div class="campaigns-list">
+        <div ng-repeat="campaign in campaignsList.campaigns" class="row"
         ng-class="{'active': campaignsList.selectedC.cName == campaign.cName}" ng-click="campaignsList.toggleCampaign(campaign)">
-            <span class="label1">{{ campaign.cName }}</span>
-        </li>
-    </ul>
+            <div class="col-lg-12">
+                <span class="label1">{{ campaign.cName }}</span>
+            </div>
+        </div>
     <campaign-add></campaign-add>
 </div>

@@ -1,0 +1,7 @@
+.list-locations {
+    .location {
+        &.active {
+            background-color: $gray-dk;
+        }
+    }
+}

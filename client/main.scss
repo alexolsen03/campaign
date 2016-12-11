@@ -9,6 +9,29 @@
 @import "{}/imports/ui/components/statBlock/statBlock.scss";
 @import "{}/imports/ui/components/attackBlockList/listAttackBlocks.scss";
 @import "{}/imports/ui/components/attackBlockAdd/addAttackBlock.scss";
+@import "{}/imports/ui/components/encountersList/listEncounters.scss";
+@import "{}/imports/ui/components/encounterDetails/detailEncounter.scss";
+@import "{}/imports/ui/components/locationDetails/detailLocation.scss";
+@import "{}/imports/ui/components/locationAdd/addLocation.scss";
+@import "{}/imports/ui/components/locationsList/listLocations.scss";
+@import "{}/imports/ui/components/listSelector/listSelector.scss";
+@import "{}/imports/ui/components/linkList/linkList.scss";
+@import "{}/imports/ui/components/register/register.scss";
+@import "{}/imports/ui/components/campaignDetails/detailCampaign.scss";
+
+
+.body-login {
+    background-image: url("congruent_outline.png");
+
+}
+
+.vertical-center {
+    min-height: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+}
 
 /* RESET */
 /* http://meyerweb.com/eric/tools/css/reset/

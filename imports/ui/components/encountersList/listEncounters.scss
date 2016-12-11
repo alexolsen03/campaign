@@ -1,0 +1,7 @@
+.list-encounters {
+    .encounter {
+        &.active {
+            background-color: $gray-dk;
+        }
+    }
+}
