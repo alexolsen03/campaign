@@ -34,8 +34,6 @@ class NpcsList {
         this.addNpc = addNpc;
 
         function selectNpc(npc){
-            console.log('toggling selected npc');
-
             this.selectedNpc = npc;
             this.onSelectedNpcChange({$event: {selectedNpc: this.selectedNpc}});
         }
@@ -45,8 +43,6 @@ class NpcsList {
         }
 
         function addNpc(npc){
-            console.log('adding npc from listNpc');
-            console.log(npc);
             Campaigns.update({_id: this.selectedC._id}, {$push: {npcs: npc}});
         }
     }

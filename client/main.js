@@ -30,8 +30,7 @@ class Main {
 
         $reactive(this).attach($scope);
         var that = this;
-        console.log(this);
-        console.log(data);
+
         this.selectedC = data.campaign;
         this.npcSave = npcSave;
         this.resetDependents = resetDependents;
@@ -65,7 +64,11 @@ class Main {
         }
 
         function addNpc(item){
+            item.owner = Meteor.userId();
+            item.id = Date.now();
             item.stats = {};
+            item.links = [];
+
             Campaigns.update({_id: this.selectedC._id}, {$push: {npcs: item}});
         }
 
@@ -74,6 +77,8 @@ class Main {
         }
 
         function addEnc(item){
+            item.owner = Meteor.userId();
+            item.id = Date.now();
             item.npcs = [];
             item.links = [];
             Campaigns.update({_id: this.selectedC._id}, {$push: {encounters: item}});
@@ -84,7 +89,10 @@ class Main {
         }
 
         function addLoc(item){
+            item.owner = Meteor.userId();
+            item.id = Date.now();
             item.links = [];
+            item.encounters = [];
             Campaigns.update({_id: this.selectedC._id}, {$push: {locations: item}});
         }
 
