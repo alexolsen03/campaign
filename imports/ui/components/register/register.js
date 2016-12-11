@@ -6,12 +6,27 @@ import { Campaigns } from '../../../api/campaigns';
 import { Accounts } from 'meteor/accounts-base';
 
 class Register {
-    constructor($scope, $reactive, $rootScope) {
+    constructor($scope, $reactive, $rootScope, $state) {
         'ngInject';
 
         $reactive(this).attach($scope);
 
+        // attaches class to body
         $rootScope.classy ="body-login";
+    }
+
+    login(){
+        console.log(this.loginEmail);
+        console.log(this.loginPassword);
+        Meteor.loginWithPassword(this.loginEmail, this.loginPassword, this.$bindToContext((err) => {
+        if (err) {
+            console.log(err);
+          this.error = err;
+        } else {
+            console.log('going campaigns');
+ //         this.$state.go('campaigns');
+        }
+      })
     }
 
 }
