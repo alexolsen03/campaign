@@ -1,12 +1,17 @@
 <div class="navigation">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-lg-9">
+                <div ng-if="navigation.isUser">
+                    <span class="title3">Campanizer</span>
+                </div>
+            </div>
+            <div class="col-lg-3 text-right user-wrapper">
                 <div ng-if="!navigation.isUser">
                     <login-buttons></login-buttons>
                 </div>
-                <div ng-if="navigation.isUser">
-                    <span class="title3">Campanizer</span>
+                <div ng-if="navigation.isUser" class="userinfo">
+                    Welcome <span class="username"> {{ navigation.currentUser }}</span> | <span class="logout" ng-click="navigation.logout()">logout</span>
                 </div>
             </div>
         </div>

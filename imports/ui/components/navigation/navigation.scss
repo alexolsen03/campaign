@@ -1,9 +1,33 @@
 .navigation {
     padding: 8px 0px;
     background-image: url("congruent_outline.png");
-    color: #f1f1f1;
-    border-bottom: 2px solid #B83D3D;
+    color: $gray;
+    border-bottom: 2px solid $accent;
     margin-bottom: 4px;
 
 //    background-color: #f1f1f1;
+    .user-wrapper {
+        margin-top: 8px;
+    }
+
+    .userinfo{
+        font-size: 12px;
+        text-transform: lowercase;
+        cursor: default;
+
+        .username {
+            color: $accent-lt;
+        }
+
+        .logout {
+            font-size: 12px;
+            color: #666;
+            cursor: pointer;
+
+            &:hover {
+                cursor: pointer;
+                color: $accent;
+            }
+        }
+    }
 }

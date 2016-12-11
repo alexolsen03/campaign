@@ -5,19 +5,6 @@
 
             <div uib-accordion close-others="false">
 
-<!--                 <div uib-accordion-group class="panel-default" heading="Campaigns" is-open="true">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <campaigns-list selected-c='main.selectedC'
-                                                        selected-npc='main.selectedNpc'
-                                                        on-selected-c-change='main.selectedC = $event.selectedC;
-                                                                                                main.selectedNpc = $event.selectedNpc;
-                                                                                                main.typeFocus = "na"'>
-                            </campaigns-list>
-                        </div>
-                    </div>
-                </div uib-accordion-group> -->
-
                 <div uib-accordion-group class="panel-default" heading="Campaigns" is-open="true">
 
                     <list-selector selected-c="main.selectedC" list="main.campaigns" add-function="main.addCampaign(item)" destroy-function="main.destroyCampaign(item)" show-focus="true"
@@ -52,43 +39,6 @@
 
                 </div>
 
-
- <!--                <div uib-accordion-group class="panel-default" heading="Npcs" is-open="true">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <npcs-list  selected-c='main.selectedC'
-                                                selected-npc='main.selectedNpc'
-                                                on-selected-npc-change='main.selectedNpc = $event.selectedNpc;
-                                                                                                main.typeFocus = "npc"'>
-                            </npcs-list>
-                        </div>
-                    </div>
-                </div uib-accordion-group>
-
-                <div uib-accordion-group class="panel-default" heading="Encounters" is-open="true">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <encounters-list  selected-c='main.selectedC'
-                                                selected-enc='main.selectedEnc'
-                                                on-selected-enc-change='main.selectedEnc = $event.selectedEnc;
-                                                                                                main.typeFocus = "enc"'>
-                            </encounters-list>
-                        </div>
-                    </div>
-                </div uib-accordion-group>
-
-                <div uib-accordion-group class="panel-default" heading="Locations" is-open="true">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <locations-list  selected-c='main.selectedC'
-                                                selected-loc='main.selectedLoc'
-                                                on-selected-loc-change='main.selectedLoc = $event.selectedLoc;
-                                                                                                main.typeFocus = "loc"'>
-                            </locations-list>
-                        </div>
-                    </div>
-                </div uib-accordion-group> -->
-
             </div uib-accordion>
 
         </div>
@@ -107,7 +57,6 @@
                             <input class="btn" type="submit" value="Save" ng-click="main.saves[main.typeFocus]()"></input>
                         </div>
                     </div>
-
 
                 </div>
             </div>
