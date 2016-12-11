@@ -1,0 +1,46 @@
+.detail-campaign {
+    .select-title {
+        color: $gray-dk;
+    }
+
+    .removal {
+        color: $gray-dk;
+        float: right;
+
+        &:hover {
+            color: red;
+        }
+    }
+
+    .campaign-wrapper,
+    .add-campaign-wrapper {
+        box-sizing: border-box;
+        padding: 16px;
+        border: 2px solid $gray-dk;
+        height: 220px;
+    }
+
+    .campaign-wrapper {
+        background-color: $gray;
+
+        &:hover {
+            background-color: $accent-lt;
+            cursor: pointer;
+            border: 2px solid $primary;
+
+            .count {
+                color: $primary;
+            }
+        }
+
+        .count {
+            color: $secondary-lt;
+            font-weight: bold;
+        }
+
+        div {
+            color: $primary-lt;
+        }
+    }
+
+}

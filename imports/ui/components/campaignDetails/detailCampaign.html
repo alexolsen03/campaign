@@ -1,9 +1,34 @@
 <navigation></navigation>
 <div class="detail-campaign">
     <div class="container">
-        <div class="col-lg-4">
+<!--         <div class="col-lg-4">
             <list-selector list="campaignDetails.campaigns" add-function="campaignDetails.addCampaign(item)" destroy-function="campaignDetails.destroyCampaign(item)" show-focus="true"
                     on-selected-item-change='campaignDetails.goToCampaign($event.selectedItem)'></list-selector>
+        </div> -->
+
+        <div ng-repeat="campaign in campaignDetails.campaigns" class="col-lg-4">
+            <div ng-click="campaignDetails.goToCampaign(campaign)" class="campaign-wrapper">
+                <h3>{{ campaign.cName }} <span><i ng-click="campaignDetails.remove(campaign)" class="fa fa-times removal"></i></span></h3>
+                <div>
+                    <span class="count">{{ campaign.npcs.length }}</span> Npcs
+                </div>
+                <div>
+                    <span class="count">{{ campaign.encounters.length }}</span> Encounters
+                </div>
+                <div>
+                    <span class="count">{{ campaign.locations.length }}</span> Locations
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="add-campaign-wrapper">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input ng-model="campaignDetails.newC.cName" class="form-control" placeholder="Create..."></input>
+                </div>
+                <div class="text-right">
+                    <button ng-click="campaignDetails.add()" class="btn primary" type="button"><i class="fa fa-plus"></i></button>
+                </div>
         </div>
     </div>
 </div>
