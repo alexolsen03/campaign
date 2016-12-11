@@ -21,17 +21,7 @@ class ListSelector {
         this.innerAddItem = innerAddItem;
         this.isActive = isActive;
 
-        this.subscribe('campaigns', () => [
-            this.selectedC._id
-        ]);
-
-        this.helpers({
-            campaign() {
-                return Campaigns.findOne({
-                    _id: this.getReactively('selectedC', true)._id || []
-                });
-            }
-        });
+        this.subscribe('campaigns');
 
         function selectItem(item){
             this.selectedItem = item;

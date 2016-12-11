@@ -25,13 +25,14 @@ import { name as Register } from '../imports/ui/components/register/register';
 import { Campaigns } from '../imports/api/campaigns';
 
 class Main {
-    constructor($scope, $reactive) {
+    constructor($scope, $reactive, data) {
         'ngInject';
 
         $reactive(this).attach($scope);
         var that = this;
-
-        this.selectedC = {};
+        console.log(this);
+        console.log(data);
+        this.selectedC = data.campaign;
         this.npcSave = npcSave;
         this.resetDependents = resetDependents;
 
@@ -132,10 +133,31 @@ export default angular.module(name, [
         controller: Main
     }).config(config);
 
-function config($locationProvider, $urlRouterProvider) {
+function config($stateProvider) {
   'ngInject';
 
-  $locationProvider.html5Mode(true);
+  $stateProvider.state('campaign', {
+    url: '/:userId/campaign/:id',
+    templateUrl,
+    controllerAs: name,
+    controller: Main,
+    resolve: {
+      data: function($q, $state, $timeout) {
+        var deferred = $q.defer();
+        $timeout(function() {
+          if (Meteor.userId() === null) {
+            $state.go('login');
+            deferred.reject();
+          } else {
+            console.log($state);
+            console.log(Campaigns.find({}).fetch());
+            var selectedC = Campaigns.findOne({_id: $state.params.id});
+            deferred.resolve({campaign: selectedC});
+          }
+        });
 
-  $urlRouterProvider.otherwise('/register');
+        return deferred.promise;
+      }
+    }
+  });
 }

@@ -4,24 +4,40 @@ import angularMeteor from 'angular-meteor';
 import templateUrl from './detailCampaign.html';
 
 import { Campaigns } from '../../../api/campaigns';
+import { name as ListSelector } from '../listSelector/listSelector';
 
 class CampaignDetails {
-    constructor($scope, $reactive, $rootScope, $filter) {
+    constructor($scope, $reactive, $rootScope, $filter, $state) {
         'ngInject';
 
         $reactive(this).attach($scope);
         var that = this;
+        this.$state = $state;
+
+        this.subscribe('campaigns');
 
         $rootScope.classy = '';
 
         console.log('loading campaign details');
+
+        this.helpers({
+            campaigns() {
+                return Campaigns.find({});
+            }
+        });
+    }
+
+    goToCampaign(item){
+      console.log('go to', item);
+      this.$state.go('campaign', {userId: Meteor.userId(), id: item._id});
     }
 }
 
 const name = 'campaignDetails';
 
 export default angular.module(name, [
-        angularMeteor
+        angularMeteor,
+        ListSelector
     ]).component(name, {
         templateUrl,
         controllerAs: name,
@@ -35,15 +51,21 @@ function config($stateProvider) {
     url: '/:userId/campaigns',
     templateUrl,
     controllerAs: name,
-    controller: CampaignDetails
-    // resolve: {
-    //   currentUser($q) {
-    //     if (Meteor.userId() === null) {
-    //       return $q.reject('AUTH_REQUIRED');
-    //     } else {
-    //       return $q.resolve();
-    //     }
-    //   }
-    // }
+    controller: CampaignDetails,
+    resolve: {
+      data: function($q, $state, $timeout) {
+        var deferred = $q.defer();
+        $timeout(function() {
+          if (Meteor.userId() === null) {
+            $state.go('login');
+            deferred.reject();
+          } else {
+            deferred.resolve();
+          }
+        });
+
+        return deferred.promise;
+      }
+    }
   });
 }

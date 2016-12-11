@@ -15,4 +15,12 @@ var app = angular.module('campaign', [
     'accounts.ui',
     main,
     campaign
-]);
+]).config(config);
+
+function config($locationProvider, $urlRouterProvider) {
+  'ngInject';
+
+  $locationProvider.html5Mode(true);
+
+  $urlRouterProvider.otherwise('/register');
+}
