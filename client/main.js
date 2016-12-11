@@ -19,6 +19,7 @@ import { name as LocationsList } from '../imports/ui/components/locationsList/li
 import { name as LocationDetail } from '../imports/ui/components/locationDetails/detailLocation';
 
 import { name as ListSelector } from '../imports/ui/components/listSelector/listSelector';
+import { name as Register } from '../imports/ui/components/register/register';
 
 // collections
 import { Campaigns } from '../imports/api/campaigns';
@@ -123,9 +124,18 @@ export default angular.module(name, [
         EncountersDetail,
         LocationsList,
         LocationDetail,
-        ListSelector
+        ListSelector,
+        Register
     ]).component(name, {
         templateUrl,
         controllerAs: name,
         controller: Main
-    })
+    }).config(config);
+
+function config($locationProvider, $urlRouterProvider) {
+  'ngInject';
+
+  $locationProvider.html5Mode(true);
+
+  $urlRouterProvider.otherwise('/register');
+}

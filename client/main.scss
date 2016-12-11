@@ -16,6 +16,21 @@
 @import "{}/imports/ui/components/locationsList/listLocations.scss";
 @import "{}/imports/ui/components/listSelector/listSelector.scss";
 @import "{}/imports/ui/components/linkList/linkList.scss";
+@import "{}/imports/ui/components/register/register.scss";
+
+
+.body-login {
+    background-image: url("congruent_outline.png");
+
+}
+
+.vertical-center {
+    min-height: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+}
 
 /* RESET */
 /* http://meyerweb.com/eric/tools/css/reset/

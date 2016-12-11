@@ -6,7 +6,7 @@ import uiBootstrap from 'angular-ui-bootstrap';
 
 import { name as main } from './main';
 
-angular.module('campaign', [
+var app = angular.module('campaign', [
     angularMeteor,
     uiRouter,
     uiBootstrap,
