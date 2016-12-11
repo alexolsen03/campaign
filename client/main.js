@@ -142,19 +142,23 @@ function config($stateProvider) {
     controllerAs: name,
     controller: Main,
     resolve: {
-      data: function($q, $state, $timeout) {
+      data: function($q, $state, $timeout, $stateParams) {
         var deferred = $q.defer();
-        $timeout(function() {
-          if (Meteor.userId() === null) {
-            $state.go('login');
-            deferred.reject();
-          } else {
-            console.log($state);
-            console.log(Campaigns.find({}).fetch());
-            var selectedC = Campaigns.findOne({_id: $state.params.id});
-            deferred.resolve({campaign: selectedC});
-          }
-        });
+        console.log($stateParams);
+
+        if(Meteor.userId() === null) {
+            $timeout(function() {
+                $state.go('login');
+                deferred.reject();
+            });
+        }else {
+            Meteor.subscribe('campaigns', () => {
+                console.log('subscribed!');
+                console.log(Campaigns.findOne({_id: $stateParams.id}));
+                var selectedC = Campaigns.findOne({_id: $stateParams.id});
+                deferred.resolve({campaign: selectedC});
+            });
+        }
 
         return deferred.promise;
       }

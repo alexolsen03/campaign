@@ -33,6 +33,10 @@ class Navigation {
         return Meteor.user().emails[0].split('@')[0];
   }
 
+  goHome() {
+    this.$state.go('campaigns');
+  }
+
   logout() {
     Accounts.logout();
     this.$state.go('login');
