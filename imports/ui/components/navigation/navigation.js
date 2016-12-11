@@ -6,13 +6,14 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 
 class Navigation {
-  constructor($scope, $reactive) {
+  constructor($scope, $reactive, $state) {
     'ngInject';
 
     $reactive(this).attach($scope);
 
     Meteor.subscribe('users');
 
+    this.$state = $state;
     this.isUser = Meteor.userId() ? true : false;
 
     this.helpers({
@@ -34,6 +35,7 @@ class Navigation {
 
   logout() {
     Accounts.logout();
+    this.$state.go('login');
   }
 }
 

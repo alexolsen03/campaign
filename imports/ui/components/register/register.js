@@ -11,6 +11,8 @@ class Register {
 
         $reactive(this).attach($scope);
 
+        this.$state = $state;
+
         // attaches class to body
         $rootScope.classy ="body-login";
     }
@@ -24,9 +26,10 @@ class Register {
           this.error = err;
         } else {
             console.log('going campaigns');
- //         this.$state.go('campaigns');
+            console.log(Meteor.user());
+            this.$state.go('campaigns', {userId: Meteor.userId()});
         }
-      })
+      }));
     }
 
 }
