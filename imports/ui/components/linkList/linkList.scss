@@ -4,6 +4,13 @@
     background-color: $gray;
     border-radius: 3px;
 
+    .add-group {
+        margin-top: 0.5rem;
+        padding-top: 0px;
+        border-top: 0px solid $gray;
+        margin-bottom: 0.5rem;
+    }
+
     .removal {
         color: $gray-dk;
 
