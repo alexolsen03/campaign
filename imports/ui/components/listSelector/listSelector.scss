@@ -1,7 +1,14 @@
 .list-selector {
     .item{
+        cursor: default;
+
+        &:hover {
+            background-color: $gray;
+        }
+
         &.active {
-            background-color: $gray-dk;
+            background-color: $secondary;
+            color: #fff;
         }
     }
 }

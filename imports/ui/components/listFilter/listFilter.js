@@ -10,20 +10,19 @@ class ListFilter {
         $reactive(this).attach($scope);
         var that = this;
 
-        this.focused = false;
         this.selectItem = selectItem;
-        this.toggleFocused = toggleFocused;
+        this.selectTag = selectTag;
 
         this.subscribe('campaigns');
 
+        /////////////////////////////
+
         function selectItem(item){
             this.selectedItem = item;
-//            this.onSelectedItemClick({$event: {selectedItem: this.selectedItem}});
         }
 
-        function toggleFocused(){
-            console.log('toggling');
-            this.focused = !this.focused;
+        function selectTag(tag){
+            this.selectedTag = tag;
         }
 
     }
@@ -39,6 +38,7 @@ export default angular.module(name, [
         controller: ListFilter,
         bindings: {
             list: '<',
-            onSelectedItemClick: '&',
+            filter: '=',
+            tags: '='
         }
     })

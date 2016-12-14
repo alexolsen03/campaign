@@ -21,6 +21,7 @@ class ListSelector {
         this.destroyItem = destroyItem;
         this.innerAddItem = innerAddItem;
         this.isActive = isActive;
+        this.tags = ["red", "blue", "green"]; // replace with campaign tags
 
         this.subscribe('campaigns');
 

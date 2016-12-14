@@ -1,14 +1,13 @@
 .list-filter {
-    margin-top: -15px;
 
     .group-row {
         padding: 4px 0px;
-        background-color: $gray;
         border-bottom: 1px solid $gray-dk;
+        font-size: $filter-font-size;
 
         input {
-            font-size: 10pt;
-            height: 28px;
+            height: $filter-height;
+            font-size: $filter-font-size;
         }
     }
 
