@@ -5,6 +5,7 @@ import templateUrl from './listSelector.html';
 
 //components
 import { name as ListItemAdd } from '../listItemAdd/listItemAdd';
+import { name as ListFilter } from '../listFilter/listFilter';
 
 // collections
 import { Campaigns } from '../../../api/campaigns';
@@ -43,11 +44,7 @@ class ListSelector {
             }
 
             if(item && this.selectedItem){
-                if(item._id){   // is a campaign object
-                    return item._id === this.selectedItem._id;
-                }else{
-                    return item.id === this.selectedItem.id;
-                }
+                return item.id === this.selectedItem.id;
             }
 
             return false;
@@ -59,7 +56,8 @@ const name = 'listSelector';
 
 export default angular.module(name, [
         angularMeteor,
-        ListItemAdd
+        ListItemAdd,
+        ListFilter
     ]).component(name, {
         templateUrl,
         controllerAs: name,

@@ -1,0 +1,23 @@
+<div class="list-filter">
+    <div class="row group-row">
+        <div class="col-lg-12">
+            <div class="filter-box">
+                <div class="filter-icon-box">
+                    <i class="fa fa-search"></i>
+                </div>
+                <input ng-model="listFilter.filter" class="form-control" ng-focus="listFilter.toggleFocused()"></input>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABSOLUTELY POSITIONED FILTER BOX -->
+    <div ng-show="listFilter.focused" class="rel-pos">
+        <div class="item-rows">
+            <div class="row" ng-repeat="item in listFilter.list | filter:listFilter.customFilter()" ng-click="listFilter.onSelectedItemClick(item)">
+                <div class="col-lg-12 list-item">
+                    {{ item.name }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

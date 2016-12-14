@@ -1,0 +1,36 @@
+.list-filter {
+    margin-top: -15px;
+
+    .group-row {
+        padding: 4px 0px;
+        background-color: $gray;
+        border-bottom: 1px solid $gray-dk;
+
+        input {
+            font-size: 10pt;
+            height: 28px;
+        }
+    }
+
+    .item-rows {
+        font-size: 14px;
+        position: absolute;
+        top: -4px;
+        left: 0px;
+        background-color: $gray;
+        z-index: 999;
+        width: 212px;
+        padding: 8px;
+        box-shadow: 1px 1px 3px #333;
+
+        .row{
+            .list-item {
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $gray-dk;
+                }
+            }
+        }
+    }
+}
