@@ -11,7 +11,7 @@
         <div class="col-lg-4 text-right">
 <!--             <select ng-options="tag for tag in listFilter.tags" ng-model="listFilter.tagSelection"></select> -->
 
-            <div class="btn-group" uib-dropdown is-open="listFilter.isopen">
+<!--             <div class="btn-group" uib-dropdown is-open="listFilter.isopen">
               <button type="button" class="btn" uib-dropdown-toggle>
                 <div class="tag selected-tag" ng-class="listFilter.selectedTag"></div><span class="carat"></span>
               </button>
@@ -20,7 +20,8 @@
                     <div class="tag" ng-class="tag"></div>
                 </li>
               </ul>
-            </div>
+            </div> -->
+            <tag-selector tag="listFilter.tag"></tag-selector>
 
         </div>
     </div>

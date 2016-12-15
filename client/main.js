@@ -25,13 +25,16 @@ import { name as Register } from '../imports/ui/components/register/register';
 import { Campaigns } from '../imports/api/campaigns';
 
 class Main {
-    constructor($scope, $reactive, data) {
+    constructor($scope, $reactive, $meteor, data) {
         'ngInject';
 
         $reactive(this).attach($scope);
         var that = this;
 
-        this.selectedC = data.campaign;
+        $meteor.subscribe('campaigns');
+        this.subscribe('campaigns');
+
+        this.campaign = data.campaign;
         this.npcSave = npcSave;
         this.resetDependents = resetDependents;
 
@@ -52,6 +55,9 @@ class Main {
         this.helpers({
             campaigns() {
                 return Campaigns.find({});
+            },
+            campaign() {
+                return Campaigns.findOne({_id: this.campaign._id})
             }
         });
 
@@ -69,11 +75,11 @@ class Main {
             item.stats = {};
             item.links = [];
 
-            Campaigns.update({_id: this.selectedC._id}, {$push: {npcs: item}});
+            Campaigns.update({_id: this.campaign._id}, {$push: {npcs: item}});
         }
 
         function destroyNpc(item){
-            Campaigns.update({_id: this.selectedC._id}, {$pull: {npcs: { "id": item.id}}});
+            Campaigns.update({_id: this.campaign._id}, {$pull: {npcs: { "id": item.id}}});
         }
 
         function addEnc(item){
@@ -81,11 +87,11 @@ class Main {
             item.id = Date.now();
             item.npcs = [];
             item.links = [];
-            Campaigns.update({_id: this.selectedC._id}, {$push: {encounters: item}});
+            Campaigns.update({_id: this.campaign._id}, {$push: {encounters: item}});
         }
 
         function destroyEnc(item){
-            Campaigns.update({_id: this.selectedC._id}, {$pull: {encounters: { "id": item.id}}});
+            Campaigns.update({_id: this.campaign._id}, {$pull: {encounters: { "id": item.id}}});
         }
 
         function addLoc(item){
@@ -93,11 +99,11 @@ class Main {
             item.id = Date.now();
             item.links = [];
             item.encounters = [];
-            Campaigns.update({_id: this.selectedC._id}, {$push: {locations: item}});
+            Campaigns.update({_id: this.campaign._id}, {$push: {locations: item}});
         }
 
         function destroyLoc(item){
-            Campaigns.update({_id: this.selectedC._id}, {$pull: {locations: { "id": item.id}}});
+            Campaigns.update({_id: this.campaign._id}, {$pull: {locations: { "id": item.id}}});
         }
 
         function resetDependents(){
@@ -107,15 +113,15 @@ class Main {
         }
 
         function npcSave(){
-            let index = that.selectedC.npcs.map(function(npc){ return npc.id}).indexOf(that.selectedNpc.id);
+            let index = that.campaign.npcs.map(function(npc){ return npc.id}).indexOf(that.selectedNpc.id);
 
             // the following removes the $$hashkey property
             that.selectedNpc = angular.toJson(that.selectedNpc);
             that.selectedNpc = angular.fromJson(that.selectedNpc);
 
-            that.selectedC.npcs[index] = that.selectedNpc;
+            that.campaign.npcs[index] = that.selectedNpc;
 
-            Meteor.call('updateNpc', that.selectedC._id, that.selectedC.npcs[index]);
+            Meteor.call('updateNpc', that.campaign._id, that.campaign.npcs[index]);
         }
     }
 }
@@ -163,8 +169,8 @@ function config($stateProvider) {
             Meteor.subscribe('campaigns', () => {
                 console.log('subscribed!');
                 console.log(Campaigns.findOne({_id: $stateParams.id}));
-                var selectedC = Campaigns.findOne({_id: $stateParams.id});
-                deferred.resolve({campaign: selectedC});
+                var campaign = Campaigns.findOne({_id: $stateParams.id});
+                deferred.resolve({campaign: campaign});
             });
         }
 

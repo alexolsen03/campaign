@@ -7,16 +7,16 @@
 
 <!--                 <div uib-accordion-group class="panel-default" heading="Campaigns" is-open="true">
 
-                    <list-selector selected-c="main.selectedC" list="main.campaigns" add-function="main.addCampaign(item)" destroy-function="main.destroyCampaign(item)" show-focus="true"
+                    <list-selector selected-c="main.campaign" list="main.campaigns" add-function="main.addCampaign(item)" destroy-function="main.destroyCampaign(item)" show-focus="true"
                     on-selected-item-change='main.resetDependents();
-                                    main.selectedC = $event.selectedItem;
+                                    main.campaign = $event.selectedItem;
                                     main.typeFocus = "na"'></list-selector>
 
                 </div> -->
 
                 <div uib-accordion-group class="panel-default" heading="Npcs" is-open="true">
 
-                    <list-selector selected-c="main.selectedC" list="main.selectedC.npcs" add-function="main.addNpc(item)" destroy-function="main.destroyNpc(item)" show-focus="main.typeFocus === 'npc'"
+                    <list-selector selected-c="main.campaign" list="main.campaign.npcs" add-function="main.addNpc(item)" destroy-function="main.destroyNpc(item)" show-focus="main.typeFocus === 'npc'"
                     on-selected-item-change="main.resetDependents();
                                                                     main.selectedNpc = $event.selectedItem;
                                                                     main.typeFocus = 'npc'"></list-selector>
@@ -25,7 +25,7 @@
 
                 <div uib-accordion-group class="panel-default" heading="Encounters" is-open="true">
 
-                    <list-selector selected-c="main.selectedC" list="main.selectedC.encounters" add-function="main.addEnc(item)" destroy-function="main.destroyEnc(item)" show-focus="main.typeFocus === 'enc'"
+                    <list-selector selected-c="main.campaign" list="main.campaign.encounters" add-function="main.addEnc(item)" destroy-function="main.destroyEnc(item)" show-focus="main.typeFocus === 'enc'"
                     on-selected-item-change="main.selectedEnc = $event.selectedItem;
                                                                     main.typeFocus = 'enc'"></list-selector>
 
@@ -33,7 +33,7 @@
 
                 <div uib-accordion-group class="panel-default" heading="Locations" is-open="true">
 
-                    <list-selector selected-c="main.selectedC" list="main.selectedC.locations" add-function="main.addLoc(item)" destroy-function="main.destroyLoc(item)" show-focus="main.typeFocus === 'loc'"
+                    <list-selector selected-c="main.campaign" list="main.campaign.locations" add-function="main.addLoc(item)" destroy-function="main.destroyLoc(item)" show-focus="main.typeFocus === 'loc'"
                     on-selected-item-change="main.selectedLoc = $event.selectedItem;
                                                                     main.typeFocus = 'loc'"></list-selector>
 
@@ -46,11 +46,11 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <npc-details ng-if='main.typeFocus == "npc"' selected-npc='main.selectedNpc' selected-c='main.selectedC' save-func='main.npcSave(selectedNpc)'></npc-details>
+                    <npc-details ng-if='main.typeFocus == "npc"' selected-npc='main.selectedNpc' selected-c='main.campaign' save-func='main.npcSave(selectedNpc)'></npc-details>
 
-                    <encounter-details ng-if='main.typeFocus=="enc"' selected-enc='main.selectedEnc' selected-c='main.selectedC'></encounter-details>
+                    <encounter-details ng-if='main.typeFocus=="enc"' selected-enc='main.selectedEnc' selected-c='main.campaign'></encounter-details>
 
-                    <location-details ng-if='main.typeFocus == "loc"' selected-loc='main.selectedLoc' selected-c='main.selectedC'></location-details>
+                    <location-details ng-if='main.typeFocus == "loc"' selected-loc='main.selectedLoc' selected-c='main.campaign'></location-details>
 
                     <div ng-if='main.typeFocus == "npc"' class="row">
                         <div class="col-lg-12 text-right">

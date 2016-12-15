@@ -21,9 +21,13 @@ class ListSelector {
         this.destroyItem = destroyItem;
         this.innerAddItem = innerAddItem;
         this.isActive = isActive;
-        this.tags = ["red", "blue", "green"]; // replace with campaign tags
+        this.customFilter = customFilter;
+        this.tag = 'none';
+        this.filter = '';
 
         this.subscribe('campaigns');
+
+        /////////////////////////////////////////////////////////
 
         function selectItem(item){
             this.selectedItem = item;
@@ -49,6 +53,28 @@ class ListSelector {
             }
 
             return false;
+        }
+
+        function customFilter(){
+            return function(item){
+                if(!item.name){
+                    return false;
+                }
+
+                if(item.name.toLowerCase().indexOf(that.filter.toLowerCase()) === -1 &&
+                    that.filter.length > 0){
+                    return false;
+                }
+
+                if(that.tag !== 'none'){
+ //                   if(item.tags.indexOf(this.tagFilter) === -1){
+                    if(item.tag !== that.tag){
+                        return false;
+                    }
+                }
+
+                return true;
+            }
         }
     }
 }

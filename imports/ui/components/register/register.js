@@ -32,6 +32,14 @@ class Register {
       }));
     }
 
+    register(){
+        console.log(this.loginEmail);
+        console.log(this.loginPassword);
+        Accounts.createUser({email: this.registerEmail, password: this.registerPassword}, function(){
+            this.$state.go('campaigns', {userId: Meteor.userId()});
+        });
+    }
+
 }
 
 const name = 'register';

@@ -1,7 +1,7 @@
 <div class="list-selector">
-    <list-filter list="listSelector.list" filter="listSelector.filter" tags="listSelector.tags"></list-filter>
+    <list-filter list="listSelector.list" filter="listSelector.filter" tag="listSelector.tag"></list-filter>
 
-    <div class="row item" ng-repeat="item in listSelector.list | filter: listSelector.filter"
+    <div class="row item" ng-repeat="item in listSelector.list | filter: listSelector.customFilter()"
           ng-click="listSelector.selectItem(item)"
           ng-class="{ 'active': listSelector.isActive(item) }">
             <div class="col-lg-10">

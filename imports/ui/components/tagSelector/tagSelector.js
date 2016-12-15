@@ -1,47 +1,37 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
-import templateUrl from './listFilter.html';
+import templateUrl from './tagSelector.html';
 
-import { name as TagSelector } from '../tagSelector/tagSelector';
-
-class ListFilter {
+class TagSelector {
     constructor($scope, $reactive) {
         'ngInject';
 
         $reactive(this).attach($scope);
         var that = this;
 
-        this.selectItem = selectItem;
-        this.selectTag = selectTag;
-
         this.subscribe('campaigns');
 
-        /////////////////////////////
+        this.tags = ["none", "red", "blue", "green"]; // replace with campaign tags
+        this.selectTag = selectTag;
 
-        function selectItem(item){
-            this.selectedItem = item;
-        }
+        /////////////////////////////
 
         function selectTag(tag){
             this.tag = tag;
         }
-
     }
 }
 
-const name = 'listFilter';
+const name = 'tagSelector';
 
 export default angular.module(name, [
-        angularMeteor,
-        TagSelector
+        angularMeteor
     ]).component(name, {
         templateUrl,
         controllerAs: name,
-        controller: ListFilter,
+        controller: TagSelector,
         bindings: {
-            list: '<',
-            filter: '=',
             tag: '='
         }
     })
