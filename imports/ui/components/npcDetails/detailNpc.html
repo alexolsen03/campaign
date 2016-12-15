@@ -1,5 +1,6 @@
 <div class="npc-details">
     <fieldset ng-disabled="npcDetails.readOnly">
+        <button ng-click="npcDetails.populate()" type="button">Pregen</button>
         <form ng-if="npcDetails.selectedNpc" ng-submit="npcDetails.save()">
             <div class="row">
                 <div class="col-lg-10">

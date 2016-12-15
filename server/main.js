@@ -31,28 +31,28 @@ Meteor.startup(() => {
                 ,"ac": {
                     "normal": 15
                     ,"touch": 12
-                    ,"flatfooted": 13
+                    ,"flatFooted": 13
                 }
+                ,"fortSave": "+3"
+                ,"reflexSave": "+4"
+                ,"willSave": "+0"
+                ,"bab": "+1"
+                ,"cmd": 16
+                ,"cmb": "+4"
+                ,"attacks": [
+                    {
+                        "attackType": "melee"
+                        ,"name": "quarterstaff"
+                        ,"bonus": "+4"
+                        ,"damage": "1d6 + 3"
+                        ,"effects": ""
+                        ,"information": "sneak attack + 1d6"
+                    }
+                ]
+                ,"hp": 16
+                ,"hitDice": "2; 1d10+1d8+6"
+                ,"speed": 30
             }
-            ,"hp": 16
-            ,"hitDice": "2; 1d10+1d8+6"
-            ,"speed": 30
-            ,"fortSave": "+3"
-            ,"reflexSave": "+4"
-            ,"willSave": "+0"
-            ,"bab": "+1"
-            ,"cmd": 16
-            ,"cmb": "+4"
-            ,"attacks": [
-                {
-                    "attackType": "melee"
-                    ,"name": "quarterstaff"
-                    ,"bonus": "+4"
-                    ,"damage": "1d6 + 3"
-                    ,"effects": ""
-                    ,"information": "sneak attack + 1d6"
-                }
-            ]
             ,"cr": 1
             ,"type": "humanoid"
             ,"alignment": "NE"
