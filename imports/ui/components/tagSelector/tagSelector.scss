@@ -1,0 +1,16 @@
+.tag-selector {
+    .dropdown-toggle {
+        box-sizing: border-box;
+        height: $filter-height;
+        background-color: $gray-dk;
+
+        &::after {
+            display: none !important;
+        }
+
+        &.btn {
+            padding-top: 0.2rem;
+            padding-bottom: 0.2rem;
+        }
+    }
+}

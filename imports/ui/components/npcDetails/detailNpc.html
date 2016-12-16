@@ -1,6 +1,17 @@
 <div class="npc-details">
     <fieldset ng-disabled="npcDetails.readOnly">
-        <button ng-click="npcDetails.populate()" type="button">Pregen</button>
+
+        <div class="btn-group" uib-dropdown is-open="npcDetails.isopen">
+          <button type="button" class="btn" uib-dropdown-toggle>
+            Pregens<span class="carat"></span>
+          </button>
+          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+            <li ng-repeat="pregen in npcDetails.pregens" role="menuitem">
+                <a ng-click="npcDetails.populate(pregen)">{{ pregen.name }}</a>
+            </li>
+          </ul>
+        </div>
+
         <form ng-if="npcDetails.selectedNpc" ng-submit="npcDetails.save()">
             <div class="row">
                 <div class="col-lg-10">

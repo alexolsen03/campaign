@@ -24,20 +24,29 @@ class NpcDetails {
         this.helpers({
             pregen() {
                 return Pregens.findOne({});
+            },
+            pregens() {
+                return Pregens.find({});
             }
         })
 
         //////////////////////////////
 
-        function populate(){
-            let pregen = this.pregen;
+        function populate(pregen){
             console.log(pregen);
 
             if(pregen){
                 Object.keys(pregen).forEach(function(key) {
                     if(key !== '_id' && key !== 'name'){
                         console.log('setting ', key);
-                        that.selectedNpc[key] = pregen[key];
+                        if(key === 'links'){
+                            if(!that.selectedNpc[key]){
+                                that.selectedNpc[key] = [];
+                            }
+                            that.selectedNpc[key].push(pregen[key][0]);
+                        }else{
+                            that.selectedNpc[key] = pregen[key];
+                        }
                     }
                 });
 
