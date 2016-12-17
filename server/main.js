@@ -287,9 +287,343 @@ Meteor.startup(() => {
             ]
         };
 
+        let squireCR1_3 = {
+            "name": "Squire 1/3"
+            ,"stats": {
+                "wisdom": 8
+                ,"intelligence": 9
+                ,"strength": 13
+                ,"constitution": 12
+                ,"dexterity": 13
+                ,"charisma": 10
+                ,"ac": {
+                    "normal": 23
+                    ,"touch": 11
+                    ,"flatFooted": 12
+                }
+                ,"fortSave": "+1"
+                ,"reflexSave": "+1"
+                ,"willSave": "+1"
+                ,"bab": "+0"
+                ,"cmd": 12
+                ,"cmb": "+1"
+                ,"attacks": [
+                    {
+                        "attackType": "melee"
+                        ,"name": "lance"
+                        ,"bonus": "+1"
+                        ,"damage": "1d8 + 1/x3"
+                        ,"effects": ""
+                        ,"information": ""
+                    },
+                    {
+                        "attackType": "melee"
+                        ,"name": "light pick"
+                        ,"bonus": "+1"
+                        ,"damage": "1d4 + 1/x4"
+                        ,"effects": ""
+                        ,"information": ""
+                    },
+                    {
+                        "attackType": "ranged"
+                        ,"name": "shortbow"
+                        ,"bonus": "+1"
+                        ,"damage": "1d6/x3"
+                        ,"effects": ""
+                        ,"information": ""
+                    }
+                ]
+                ,"hp": 5
+                ,"hitDice": "1d8+1"
+                ,"speed": 30
+            }
+            ,"cr": "1/3"
+            ,"initiative": "+1"
+            ,"perception": "-1"
+            ,"type": "humanoid"
+            ,"alignment": "N"
+            ,"size": "Medium"
+            ,"links": [
+                {
+                    "title" : "Squire",
+                    "url" : "http://paizo.com/pathfinderRPG/prd/gameMasteryGuide/npcs/crusaders.html#squire",
+                    "id" : 5
+                },
+            ]
+        };
+
+        let holyWarriorCR6 = {
+            "name": "Holy Warrior"
+            ,"stats": {
+                "strength": 14
+                ,"dexterity": 17
+                ,"constitution": 12
+                ,"intelligence": 10
+                ,"wisdom": 8
+                ,"charisma": 14
+                ,"ac": {
+                    "normal": 20
+                    ,"touch": 13
+                    ,"flatFooted": 17
+                }
+                ,"fortSave": "+8"
+                ,"reflexSave": "+7"
+                ,"willSave": "+6"
+                ,"bab": "+7"
+                ,"cmd": 22
+                ,"cmb": "+9"
+                ,"attacks": [
+                    {
+                        "attackType": "melee"
+                        ,"name": "greatsword"
+                        ,"bonus": "+10/+5"
+                        ,"damage": "2d6+4/19-20"
+                        ,"effects": ""
+                        ,"information": ""
+                    },
+                    {
+                        "attackType": "melee"
+                        ,"name": "lance"
+                        ,"bonus": "+9/+4"
+                        ,"damage": "1d8+3/x3"
+                        ,"effects": ""
+                        ,"information": ""
+                    },
+                    {
+                        "attackType": "melee"
+                        ,"name": "dagger"
+                        ,"bonus": "+9/+4"
+                        ,"damage": "1d4+2/x3"
+                        ,"effects": ""
+                        ,"information": ""
+                    },
+                    {
+                        "attackType": "ranged"
+                        ,"name": "composite longbow"
+                        ,"bonus": "+11/+11/+6"
+                        ,"damage": "1d8+3/x3"
+                        ,"effects": ""
+                        ,"information": ""
+                    },
+                    {
+                        "attackType": "ranged"
+                        ,"name": "dagger"
+                        ,"bonus": "+10"
+                        ,"damage": "1d4+2/19-20"
+                        ,"effects": ""
+                        ,"information": ""
+                    }
+                ]
+                ,"specialAttacks": [
+                    {
+                        "name": "smite evil"
+                        ,"amt": "3/day"
+                        ,"effect": "+2 attack and AC, +7 damage"
+                    }
+                ]
+                ,"spellLikeAbilities": [
+                    {
+                        "name": "At Will"
+                        ,"description": "detect evil"
+                    }
+                ]
+                ,"prepared_spells": {
+                    "1": ["bless weapon"],
+                    "2": ["eagle's splendor"]
+                }
+                ,"feats": [
+                    "Deadly Aim",
+                    "Manyshot",
+                    "Point Blank Shot",
+                    "Power Attack",
+                    "Rapid Shot"
+                ]
+                ,"hp": 51
+                ,"hitDice": "7d10+13"
+                ,"speed": 20
+            }
+            ,"cr": "6"
+            ,"initiative": "+3"
+            ,"perception": "+4"
+            ,"type": "humanoid"
+            ,"alignment": "LG"
+            ,"size": "Medium"
+            ,"links": [
+                {
+                    "title" : "Holy Warrior",
+                    "url" : "http://paizo.com/pathfinderRPG/prd/gameMasteryGuide/npcs/crusaders.html#holy-warrior",
+                    "id" : 6
+                },
+            ]
+        };
+
+        let saintCR11 = {
+            "name": "Saint"
+            ,"stats": {
+                "strength": 15
+                ,"dexterity": 8
+                ,"constitution": 14
+                ,"intelligence": 12
+                ,"wisdom": 10
+                ,"charisma": 20
+                ,"ac": {
+                    "normal": 22
+                    ,"touch": 9
+                    ,"flatFooted": 22
+                }
+                ,"fortSave": "+15"
+                ,"reflexSave": "+8"
+                ,"willSave": "+13"
+                ,"bab": "+12"
+                ,"cmd": 23
+                ,"cmb": "+14"
+                ,"attacks": [
+                    {
+                        "attackType": "melee"
+                        ,"name": "evil outsider bane scimitar"
+                        ,"bonus": "+15/+10"
+                        ,"damage": "1d6+3/15-20"
+                        ,"effects": ""
+                        ,"information": ""
+                    },
+                    {
+                        "attackType": "melee"
+                        ,"name": "light hammer"
+                        ,"bonus": "+14/+9"
+                        ,"damage": "1d4+2"
+                        ,"effects": ""
+                        ,"information": ""
+                    },
+                    {
+                        "attackType": "ranged"
+                        ,"name": "light hammer"
+                        ,"bonus": "+11"
+                        ,"damage": "1d4+2"
+                        ,"effects": ""
+                        ,"information": ""
+                    },
+                ]
+                ,"specialAttacks": [
+                    {
+                        "name": "smite evil"
+                        ,"amt": "3/day"
+                        ,"effect": "+5 attack and AC, +12 damage"
+                    },
+                    {
+                        "name": "channel positive energy"
+                        ,"amt": ""
+                        ,"effect": "DC 21 / 6d6"
+                    }
+                ]
+                ,"spellLikeAbilities": [
+                    {
+                        "name": "At Will"
+                        ,"description": "detect evil"
+                    }
+                ]
+                ,"prepared_spells": {
+                    "1": ["bless weapon", "divine favor (2)", "lessor restoration"],
+                    "2": ["bull's strength", "resist energy", "shield other"],
+                    "3": ["dispel magic", "magic circle vs evil"]
+                }
+                ,"feats": [
+                    "Alignment Chanel",
+                    "Craft Magic Arms and Armor",
+                    "Craft Wondrous Items",
+                    "Extra Channel",
+                    "Improved Critical (scimitar)",
+                    "Magical Aptitude",
+                    "Power Attack"
+                ]
+                ,"hp": 92
+                ,"hitDice": "12d10+26"
+                ,"speed": 20
+            }
+            ,"cr": "11"
+            ,"initiative": "-1"
+            ,"perception": "+6"
+            ,"type": "humanoid"
+            ,"alignment": "LG"
+            ,"size": "Medium"
+            ,"links": [
+                {
+                    "title" : "Saint",
+                    "url" : "http://paizo.com/pathfinderRPG/prd/gameMasteryGuide/npcs/crusaders.html#saint",
+                    "id" : 7
+                },
+            ]
+        };
+
+        let villageIdiotCR1_3 = {
+            "name": "Village Idiot"
+            ,"stats": {
+                "strength": 12
+                ,"dexterity": 11
+                ,"constitution": 15
+                ,"intelligence": 4
+                ,"wisdom": 9
+                ,"charisma": 10
+                ,"ac": {
+                    "normal": 10
+                    ,"touch": 10
+                    ,"flatFooted": 10
+                }
+                ,"fortSave": "+2"
+                ,"reflexSave": "+0"
+                ,"willSave": "-1"
+                ,"bab": "+0"
+                ,"cmd": 11
+                ,"cmb": "+1"
+                ,"attacks": [
+                    {
+                        "attackType": "melee"
+                        ,"name": "improvised club"
+                        ,"bonus": "+1"
+                        ,"damage": "1d4+1"
+                        ,"effects": ""
+                        ,"information": ""
+                    },
+                    {
+                        "attackType": "ranged"
+                        ,"name": "sling"
+                        ,"bonus": "-1"
+                        ,"damage": "1d3+1"
+                        ,"effects": ""
+                        ,"information": ""
+                    },
+                ]
+                ,"specialAttacks": []
+                ,"spellLikeAbilities": []
+                ,"prepared_spells": {}
+                ,"feats": [
+                    "Catch Off-Guard",
+                    "Endurance"
+                ]
+                ,"hp": 6
+                ,"hitDice": "1d6+3"
+                ,"speed": 30
+            }
+            ,"cr": "1/3"
+            ,"initiative": "+0"
+            ,"perception": "+3"
+            ,"type": "humanoid"
+            ,"alignment": "N"
+            ,"size": "Medium"
+            ,"links": [
+                {
+                    "title" : "Village Idiot",
+                    "url" : "http://paizo.com/pathfinderRPG/prd/gameMasteryGuide/npcs/villagers.html#village-idiot",
+                    "id" : 8
+                },
+            ]
+        }
+
         Pregens.insert(thugCR1);
         Pregens.insert(footSoliderCR1_3);
         Pregens.insert(cavalryCR5);
         Pregens.insert(generalCR10);
+        Pregens.insert(squireCR1_3);
+        Pregens.insert(holyWarriorCR6);
+        Pregens.insert(villageIdiotCR1_3);
     }
 });
