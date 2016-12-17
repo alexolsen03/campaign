@@ -1,15 +1,54 @@
 <div class="npc-details">
     <fieldset ng-disabled="npcDetails.readOnly">
 
-        <div class="btn-group" uib-dropdown is-open="npcDetails.isopen">
-          <button type="button" class="btn" uib-dropdown-toggle>
-            Pregens<span class="carat"></span>
-          </button>
-          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-            <li ng-repeat="pregen in npcDetails.pregens" role="menuitem">
-                <a ng-click="npcDetails.populate(pregen)">{{ pregen.name }}</a>
-            </li>
-          </ul>
+        <div class="row">
+            <div class="col-lg-8">
+                <label>Labels</label>
+                <div>
+                    <ul class='tag-list'>
+                        <li ng-repeat="tag in npcDetails.selectedNpc.tags">
+                            <div class="tag" ng-class="tag"></div>
+                        </li>
+                    </ul>
+                    <tag-add tags="npcDetails.selectedNpc.tags"></tag-add>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <label></label>
+                <div>
+                    <div class="btn-group" uib-dropdown is-open="npcDetails.isopen">
+                        <button type="button" class="btn pregen-btn" uib-dropdown-toggle>
+                        Pregens<span class="carat"></span>
+                        </button>
+                        <ul class="dropdown-menu pregen-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                            <li>
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="pad-me-6-h">
+                                            <span class='list-heading'>Type</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <span class="list-heading">CR</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li ng-repeat="pregen in npcDetails.pregens | orderBy:'cr'" role="menuitem" class="pregen" ng-click="npcDetails.populate(pregen)">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="pad-me-6-h">
+                                            <span>{{ pregen.name }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <span class="npc-cr">{{ pregen.cr }}</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <form ng-if="npcDetails.selectedNpc" ng-submit="npcDetails.save()">
@@ -28,14 +67,17 @@
                                 <input class="form-control tiny" ng-model="npcDetails.selectedNpc.cr"></input>
                             </div>
                         </div>
+                        <div class="col-lg-2">
+                            <div class="form-group">
+                                <label for="cr">Alignment</label>
+                                <input class="form-control tiny" ng-model="npcDetails.selectedNpc.alignment"></input>
+                            </div>
+                        </div>
                         <div class="col-lg-3">
                             <div class="form-group">
                                 <label for="type">Type</label>
                                 <input class="form-control" ng-model="npcDetails.selectedNpc.type"></input>
                             </div>
-                        </div>
-                        <div class="col-lg-2">
-                            <tag-selector tag="npcDetails.selectedNpc.tag"></tag-selector>
                         </div>
                     </div>
 

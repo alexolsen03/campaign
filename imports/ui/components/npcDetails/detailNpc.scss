@@ -12,4 +12,48 @@
             width: 50px;
         }
     }
+
+    .vtop {
+        vertical-align: top !important;
+    }
+
+    .pregen-btn{
+        font-size: 9pt;
+        height: 22px;
+        line-height: 1;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .pregen-menu {
+        width: 220px;
+
+        .list-heading {
+            font-size: 10px;
+            color: $gray-dk;
+        }
+
+        .pregen{
+            &:hover {
+                cursor: pointer;
+                background-color: $gray;
+            }
+        }
+    }
+
+    .tag-list {
+        display: inline-block;
+        margin-bottom: 0px;
+
+        li {
+            display: inline-block;
+            width: 50px;
+            margin: 0px 2px;
+
+            .tag {
+                box-sizing: border-box;
+                height: 22px;
+                margin-top: 0px;
+            }
+        }
+    }
 }

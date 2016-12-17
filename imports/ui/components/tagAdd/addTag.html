@@ -1,0 +1,12 @@
+<div class="btn-group tag-add vtop" uib-dropdown is-open="tagAdd.isopen">
+  <button type="button" class="btn" uib-dropdown-toggle>
+    <i class="fa fa-plus"></i>
+  </button>
+  <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+    <li ng-repeat="tag in tagAdd.options" role="menuitem" ng-click="tagAdd.toggleTag(tag)">
+        <div class="tag" ng-class="tag">
+            <i ng-if="tagAdd.hasTag(tag)" class="fa fa-check"></i>
+        </div>
+    </li>
+  </ul>
+</div>

@@ -20,7 +20,7 @@ Meteor.startup(() => {
     if(Pregens.find().count() === 0){
         console.log('adding pregen');
         let thugCR1 = {
-            "name": "Thug CR1"
+            "name": "Thug"
             ,"stats": {
                 "wisdom": 10
                 ,"intelligence": 8
@@ -69,7 +69,7 @@ Meteor.startup(() => {
         };
 
         let footSoliderCR1_3 = {
-            "name": "Foot Soldier CR1/3"
+            "name": "Foot Soldier"
             ,"stats": {
                 "wisdom": 10
                 ,"intelligence": 8
@@ -142,7 +142,7 @@ Meteor.startup(() => {
         };
 
         let cavalryCR5 = {
-            "name": "Cavalry CR5"
+            "name": "Cavalry"
             ,"stats": {
                 "wisdom": 12
                 ,"intelligence": 8
@@ -223,7 +223,7 @@ Meteor.startup(() => {
         };
 
         let generalCR10 = {
-            "name": "General CR 10"
+            "name": "General"
             ,"stats": {
                 "wisdom": 10
                 ,"intelligence": 14
@@ -288,7 +288,7 @@ Meteor.startup(() => {
         };
 
         let squireCR1_3 = {
-            "name": "Squire 1/3"
+            "name": "Squire"
             ,"stats": {
                 "wisdom": 8
                 ,"intelligence": 9

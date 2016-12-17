@@ -74,6 +74,7 @@ class Main {
             item.id = Date.now();
             item.stats = {};
             item.links = [];
+            item.tags = [];
 
             Campaigns.update({_id: this.campaign._id}, {$push: {npcs: item}});
         }
@@ -87,6 +88,8 @@ class Main {
             item.id = Date.now();
             item.npcs = [];
             item.links = [];
+            item.tags = [];
+
             Campaigns.update({_id: this.campaign._id}, {$push: {encounters: item}});
         }
 
@@ -99,6 +102,7 @@ class Main {
             item.id = Date.now();
             item.links = [];
             item.encounters = [];
+            item.tags = [];
             Campaigns.update({_id: this.campaign._id}, {$push: {locations: item}});
         }
 

@@ -5,6 +5,7 @@ import templateUrl from './detailNpc.html';
 
 import { name as StatBlock } from '../statBlock/statBlock';
 import { name as TagSelector } from '../tagSelector/tagSelector';
+import { name as TagAdd } from '../tagAdd/addTag';
 
 import { Campaigns } from '../../../api/campaigns';
 import { Pregens } from '../../../api/pregens';
@@ -61,7 +62,8 @@ const name = 'npcDetails';
 export default angular.module(name, [
         angularMeteor,
         StatBlock,
-        TagSelector
+        TagSelector,
+        TagAdd
     ]).component(name, {
         templateUrl,
         controllerAs: name,

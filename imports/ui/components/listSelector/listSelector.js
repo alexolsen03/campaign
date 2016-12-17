@@ -67,8 +67,9 @@ class ListSelector {
                 }
 
                 if(that.tag !== 'none'){
- //                   if(item.tags.indexOf(this.tagFilter) === -1){
-                    if(item.tag !== that.tag){
+
+                    if(item.tags.indexOf(that.tag) === -1){
+ //                   if(item.tag !== that.tag){
                         return false;
                     }
                 }
