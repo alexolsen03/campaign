@@ -72,7 +72,13 @@ class Main {
         function addNpc(item){
             item.owner = Meteor.userId();
             item.id = Date.now();
-            item.stats = {};
+            item.stats = {
+                attacks: {
+                    melee: [],
+                    ranged: [],
+                    touch: []
+                }
+            };
             item.links = [];
             item.tags = [];
 

@@ -1,17 +1,6 @@
 <div class='stat-block'>
 
     <div class="row">
-        <div class="col-lg-6">
-            <div class="form-group top">
-                <label>AC <span class='slash'>/</span>
-                              Touch <span class='slash'>/</span>
-                              Flat Footed
-                </label>
-                <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.ac.normal"></input><span class='slash'>/</span>
-                <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.ac.touch"></input><span class='slash'>/</span>
-                <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.ac.flatFooted"></input>
-            </div>
-        </div>
         <div class="col-lg-2">
             <div class="form-group top">
                 <label>HP</label>
@@ -24,33 +13,26 @@
                 <input class="form-control" ng-model="statBlock.selectedNpc.stats.hitDice"></input>
             </div>
         </div>
-        <div class="col-lg-2">
+        <div class="col-lg-3">
             <div class="form-group top">
                 <label>Speed</label>
                 <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.speed"></input>
             </div>
         </div>
+        <div class="col-lg-5 text-right">
+            <div class="form-group top">
+                <label>AC <span class='slash'>/</span>
+                              Touch <span class='slash'>/</span>
+                              Flat Footed
+                </label>
+                <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.ac.normal"></input><span class='slash'>/</span>
+                <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.ac.touch"></input><span class='slash'>/</span>
+                <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.ac.flatFooted"></input>
+            </div>
+        </div>
     </div>
 
     <div class="row">
-        <div class="col-lg-2">
-            <div class="form-group top">
-                <label>Fort</label>
-                <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.fortSave">
-            </div>
-        </div>
-        <div class="col-lg-2">
-            <div class="form-group top">
-                <label>Reflex</label>
-                <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.reflexSave">
-            </div>
-        </div>
-        <div class="col-lg-2">
-            <div class="form-group top">
-                <label>Will</label>
-                <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.willSave">
-            </div>
-        </div>
         <div class="col-lg-2">
             <div class="form-group top">
                 <label>BAB</label>
@@ -63,17 +45,38 @@
                 <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.cmd">
             </div>
         </div>
-        <div class="col-lg-2">
+        <div class="col-lg-3">
             <div class="form-group top">
                 <label>CMB</label>
                 <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.cmb">
+            </div>
+        </div>
+        <div class="col-lg-5 text-right">
+            <div class="form-group top">
+                <label>Fort <span class='slash'>/</span>
+                              Reflex <span class='slash'>/</span>
+                              Will
+                </label>
+                <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.fortSave"></input><span class='slash'>/</span>
+                <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.reflexSave"></input><span class='slash'>/</span>
+                <input class="form-control tiny" ng-model="statBlock.selectedNpc.stats.willSave"></input>
             </div>
         </div>
     </div>
 
     <div class="row">
         <div class="col-lg-12">
-            <attack-blocks-list selected-npc="statBlock.selectedNpc"></attack-blocks-list>
+            <uib-tabset active="statBlock.activeTab">
+                <uib-tab heading="Melee" index="0">
+                    <attack-blocks-list selected-npc="statBlock.selectedNpc" attacks="statBlock.meleeAttacks()"></attack-blocks-list>
+                </uib-tab>
+                <uib-tab heading="Ranged" index="1">
+                    <attack-blocks-list selected-npc="statBlock.selectedNpc" attacks="statBlock.rangedAttacks()"></attack-blocks-list>
+                </uib-tab>
+                <uib-tab heading="Touch" index="2">
+                    <attack-blocks-list selected-npc="statBlock.selectedNpc" attacks="statBlock.touchAttacks()"></attack-blocks-list>
+                </uib-tab>
+            </uib-tabset>
         </div>
     </div>
 </div>

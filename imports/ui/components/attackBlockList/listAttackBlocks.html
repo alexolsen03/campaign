@@ -1,36 +1,26 @@
 <div class="attack-block-list">
-    <div ng-repeat='attack in attackBlocksList.selectedNpc.stats.attacks'
+    <div ng-repeat='attack in attackBlocksList.attacks'
             class="attack-block">
-        <div class="row">
-            <div class="col-lg-11">
-                <div class="form-group">
-                        <label>Melee</label>
-                        <input ng-model="attack.attackType" class="form-control" type="radio" value="melee"></input>
-                        <label>Ranged</label>
-                        <input ng-model="attack.attackType" class="form-control" type="radio" value="ranged"></input>
-                        <label>Touch</label>
-                        <input ng-model="attack.attackType" class="form-control" type="radio" value="touch"></input>
-                    </div>
-            </div>
-            <div class="col-lg-1">
-                <i ng-click="attackBlocksList.removeAttack(attack)" class="fa fa-times removal"></i>
-            </div>
-        </div>
 
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-7">
                 <div class="form-group">
                     <label>Name</label>
                     <input ng-model="attack.name" class="form-control"></input>
                 </div>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-5 text-right">
+                <i ng-click="attackBlocksList.removeAttack(attack)" class="fa fa-times removal"></i>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
                 <div class="form-group">
                     <label>Bonus</label>
                     <input ng-model="attack.bonus" class="form-control tiny"></input>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="form-group">
                     <label>Damage</label>
                     <input ng-model="attack.damage" class="form-control"></input>
@@ -60,7 +50,7 @@
         </attack-block-add>
 
     </div>
-        <div class="row">
+    <div class="row">
         <div class="col-lg-12 text-center">
             <button ng-if="!attackBlocksList.showAdd" ng-click="attackBlocksList.toggleShowAdd()" class="btn" type="button"><i class="fa fa-plus"></i></button>
             <button ng-if="attackBlocksList.showAdd" ng-click="attackBlocksList.toggleShowAdd()" class="btn" type="button"><i class="fa fa-minus"></i></button>

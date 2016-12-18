@@ -39,16 +39,28 @@ Meteor.startup(() => {
                 ,"bab": "+1"
                 ,"cmd": 16
                 ,"cmb": "+4"
-                ,"attacks": [
-                    {
-                        "attackType": "melee"
-                        ,"name": "quarterstaff"
-                        ,"bonus": "+4"
-                        ,"damage": "1d6 + 3"
-                        ,"effects": ""
-                        ,"information": "sneak attack + 1d6"
-                    }
-                ]
+                ,"attacks": {
+                    "melee": [
+                        {
+                            "attackType": "melee"
+                            ,"name": "quarterstaff"
+                            ,"bonus": "+4"
+                            ,"damage": "1d6 + 3"
+                            ,"effects": ""
+                            ,"information": "sneak attack + 1d6"
+                        }
+                    ],
+                    "ranged": [
+
+                    ],
+                    "touch": [
+
+                    ]
+                }
+                ,"specialAttacks": []
+                ,"spellLikeAbilities": []
+                ,"prepared_spells": {}
+                ,"feats": []
                 ,"hp": 16
                 ,"hitDice": "2; 1d10+1d8+6"
                 ,"speed": 30
@@ -88,40 +100,51 @@ Meteor.startup(() => {
                 ,"bab": "+1"
                 ,"cmd": 14
                 ,"cmb": "+3"
-                ,"attacks": [
-                    {
-                        "attackType": "melee"
-                        ,"name": "longspear"
-                        ,"bonus": "+3"
-                        ,"damage": "1d8 + 3/x3"
-                        ,"effects": "Reach 10ft"
-                        ,"information": ""
-                    },
-                    {
-                        "attackType": "melee"
-                        ,"name": "greatsword"
-                        ,"bonus": "+3"
-                        ,"damage": "2d6 + 3/19-20"
-                        ,"effects": ""
-                        ,"information": ""
-                    },
-                    {
-                        "attackType": "melee"
-                        ,"name": "dagger"
-                        ,"bonus": "+3"
-                        ,"damage": "1d4 + 2/19-20"
-                        ,"effects": ""
-                        ,"information": ""
-                    },
-                    {
-                        "attackType": "ranged"
-                        ,"name": "javelin"
-                        ,"bonus": "+2"
-                        ,"damage": "1d6 + 2"
-                        ,"effects": ""
-                        ,"information": ""
-                    }
-                ]
+                ,"attacks": {
+                    "melee": [
+                        {
+                            "attackType": "melee"
+                            ,"name": "longspear"
+                            ,"bonus": "+3"
+                            ,"damage": "1d8 + 3/x3"
+                            ,"effects": "Reach 10ft"
+                            ,"information": ""
+                        },
+                        {
+                            "attackType": "melee"
+                            ,"name": "greatsword"
+                            ,"bonus": "+3"
+                            ,"damage": "2d6 + 3/19-20"
+                            ,"effects": ""
+                            ,"information": ""
+                        },
+                        {
+                            "attackType": "melee"
+                            ,"name": "dagger"
+                            ,"bonus": "+3"
+                            ,"damage": "1d4 + 2/19-20"
+                            ,"effects": ""
+                            ,"information": ""
+                        },
+                    ],
+                    "ranged": [
+                        {
+                            "attackType": "ranged"
+                            ,"name": "javelin"
+                            ,"bonus": "+2"
+                            ,"damage": "1d6 + 2"
+                            ,"effects": ""
+                            ,"information": ""
+                        }
+                    ],
+                    "touch": [
+
+                    ]
+                }
+                ,"specialAttacks": []
+                ,"spellLikeAbilities": []
+                ,"prepared_spells": {}
+                ,"feats": []
                 ,"hp": 8
                 ,"hitDice": "1d10+3"
                 ,"speed": 20
@@ -161,48 +184,57 @@ Meteor.startup(() => {
                 ,"bab": "+6"
                 ,"cmd": 22
                 ,"cmb": "+9"
-                ,"attacks": [
-                    {
-                        "attackType": "melee"
-                        ,"name": "mwk lance"
-                        ,"bonus": "+12/+7"
-                        ,"damage": "1d8 + 6/x3"
-                        ,"effects": ""
-                        ,"information": ""
-                    },
-                    {
-                        "attackType": "melee"
-                        ,"name": "shortspear"
-                        ,"bonus": "+10/+5"
-                        ,"damage": "1d6 + 4"
-                        ,"effects": ""
-                        ,"information": ""
-                    },
-                    {
-                        "attackType": "melee"
-                        ,"name": "dagger"
-                        ,"bonus": "+9/+4"
-                        ,"damage": "1d4 + 3/19-20"
-                        ,"effects": ""
-                        ,"information": ""
-                    },
-                    {
-                        "attackType": "ranged"
-                        ,"name": "mwk composite shortbow"
-                        ,"bonus": "+10/+5"
-                        ,"damage": "1d6 + 3/x3"
-                        ,"effects": ""
-                        ,"information": ""
-                    },
-                    {
-                        "attackType": "ranged"
-                        ,"name": "shortspear"
-                        ,"bonus": "+10/+5"
-                        ,"damage": "1d6 + 3"
-                        ,"effects": ""
-                        ,"information": ""
-                    }
-                ]
+                ,"attacks": {
+                    "melee": [
+                        {
+                            "attackType": "melee"
+                            ,"name": "mwk lance"
+                            ,"bonus": "+12/+7"
+                            ,"damage": "1d8 + 6/x3"
+                            ,"effects": ""
+                            ,"information": ""
+                        },
+                        {
+                            "attackType": "melee"
+                            ,"name": "shortspear"
+                            ,"bonus": "+10/+5"
+                            ,"damage": "1d6 + 4"
+                            ,"effects": ""
+                            ,"information": ""
+                        },
+                        {
+                            "attackType": "melee"
+                            ,"name": "dagger"
+                            ,"bonus": "+9/+4"
+                            ,"damage": "1d4 + 3/19-20"
+                            ,"effects": ""
+                            ,"information": ""
+                        },
+                    ],
+                    "ranged": [
+                        {
+                            "attackType": "ranged"
+                            ,"name": "mwk composite shortbow"
+                            ,"bonus": "+10/+5"
+                            ,"damage": "1d6 + 3/x3"
+                            ,"effects": ""
+                            ,"information": ""
+                        },
+                        {
+                            "attackType": "ranged"
+                            ,"name": "shortspear"
+                            ,"bonus": "+10/+5"
+                            ,"damage": "1d6 + 3"
+                            ,"effects": ""
+                            ,"information": ""
+                        }
+                    ],
+                    "touch": []
+                }
+                ,"specialAttacks": []
+                ,"spellLikeAbilities": []
+                ,"prepared_spells": {}
+                ,"feats": []
                 ,"hp": 42
                 ,"hitDice": "6d10+9"
                 ,"speed": 20
@@ -242,32 +274,41 @@ Meteor.startup(() => {
                 ,"bab": "+11"
                 ,"cmd": 28
                 ,"cmb": "+15"
-                ,"attacks": [
-                    {
-                        "attackType": "melee"
-                        ,"name": "glaive"
-                        ,"bonus": "+19/+14"
-                        ,"damage": "1d10 + 11"
-                        ,"effects": ""
-                        ,"information": ""
-                    },
-                    {
-                        "attackType": "melee"
-                        ,"name": "armor spikes"
-                        ,"bonus": "+15/+10"
-                        ,"damage": "1d6 + 4"
-                        ,"effects": ""
-                        ,"information": ""
-                    },
-                    {
-                        "attackType": "ranged"
-                        ,"name": "composite longbow"
-                        ,"bonus": "+13/+8"
-                        ,"damage": "1d8 + 5/x3"
-                        ,"effects": ""
-                        ,"information": ""
-                    }
-                ]
+                ,"attacks": {
+                    "melee": [
+                        {
+                            "attackType": "melee"
+                            ,"name": "glaive"
+                            ,"bonus": "+19/+14"
+                            ,"damage": "1d10 + 11"
+                            ,"effects": ""
+                            ,"information": ""
+                        },
+                        {
+                            "attackType": "melee"
+                            ,"name": "armor spikes"
+                            ,"bonus": "+15/+10"
+                            ,"damage": "1d6 + 4"
+                            ,"effects": ""
+                            ,"information": ""
+                        },
+                    ],
+                    "ranged": [
+                        {
+                            "attackType": "ranged"
+                            ,"name": "composite longbow"
+                            ,"bonus": "+13/+8"
+                            ,"damage": "1d8 + 5/x3"
+                            ,"effects": ""
+                            ,"information": ""
+                        }
+                    ],
+                    "touch": []
+                }
+                ,"specialAttacks": []
+                ,"spellLikeAbilities": []
+                ,"prepared_spells": {}
+                ,"feats": []
                 ,"hp": 85
                 ,"hitDice": "11d10+25"
                 ,"speed": 30
@@ -307,32 +348,41 @@ Meteor.startup(() => {
                 ,"bab": "+0"
                 ,"cmd": 12
                 ,"cmb": "+1"
-                ,"attacks": [
-                    {
-                        "attackType": "melee"
-                        ,"name": "lance"
-                        ,"bonus": "+1"
-                        ,"damage": "1d8 + 1/x3"
-                        ,"effects": ""
-                        ,"information": ""
-                    },
-                    {
-                        "attackType": "melee"
-                        ,"name": "light pick"
-                        ,"bonus": "+1"
-                        ,"damage": "1d4 + 1/x4"
-                        ,"effects": ""
-                        ,"information": ""
-                    },
-                    {
-                        "attackType": "ranged"
-                        ,"name": "shortbow"
-                        ,"bonus": "+1"
-                        ,"damage": "1d6/x3"
-                        ,"effects": ""
-                        ,"information": ""
-                    }
-                ]
+                ,"attacks": {
+                    "melee": [
+                        {
+                            "attackType": "melee"
+                            ,"name": "lance"
+                            ,"bonus": "+1"
+                            ,"damage": "1d8 + 1/x3"
+                            ,"effects": ""
+                            ,"information": ""
+                        },
+                        {
+                            "attackType": "melee"
+                            ,"name": "light pick"
+                            ,"bonus": "+1"
+                            ,"damage": "1d4 + 1/x4"
+                            ,"effects": ""
+                            ,"information": ""
+                        },
+                    ],
+                    "ranged": [
+                        {
+                            "attackType": "ranged"
+                            ,"name": "shortbow"
+                            ,"bonus": "+1"
+                            ,"damage": "1d6/x3"
+                            ,"effects": ""
+                            ,"information": ""
+                        }
+                    ],
+                    "touch": []
+                }
+                ,"specialAttacks": []
+                ,"spellLikeAbilities": []
+                ,"prepared_spells": {}
+                ,"feats": []
                 ,"hp": 5
                 ,"hitDice": "1d8+1"
                 ,"speed": 30
@@ -372,48 +422,53 @@ Meteor.startup(() => {
                 ,"bab": "+7"
                 ,"cmd": 22
                 ,"cmb": "+9"
-                ,"attacks": [
-                    {
-                        "attackType": "melee"
-                        ,"name": "greatsword"
-                        ,"bonus": "+10/+5"
-                        ,"damage": "2d6+4/19-20"
-                        ,"effects": ""
-                        ,"information": ""
-                    },
-                    {
-                        "attackType": "melee"
-                        ,"name": "lance"
-                        ,"bonus": "+9/+4"
-                        ,"damage": "1d8+3/x3"
-                        ,"effects": ""
-                        ,"information": ""
-                    },
-                    {
-                        "attackType": "melee"
-                        ,"name": "dagger"
-                        ,"bonus": "+9/+4"
-                        ,"damage": "1d4+2/x3"
-                        ,"effects": ""
-                        ,"information": ""
-                    },
-                    {
-                        "attackType": "ranged"
-                        ,"name": "composite longbow"
-                        ,"bonus": "+11/+11/+6"
-                        ,"damage": "1d8+3/x3"
-                        ,"effects": ""
-                        ,"information": ""
-                    },
-                    {
-                        "attackType": "ranged"
-                        ,"name": "dagger"
-                        ,"bonus": "+10"
-                        ,"damage": "1d4+2/19-20"
-                        ,"effects": ""
-                        ,"information": ""
-                    }
-                ]
+                ,"attacks": {
+                    "melee": [
+                        {
+                            "attackType": "melee"
+                            ,"name": "greatsword"
+                            ,"bonus": "+10/+5"
+                            ,"damage": "2d6+4/19-20"
+                            ,"effects": ""
+                            ,"information": ""
+                        },
+                        {
+                            "attackType": "melee"
+                            ,"name": "lance"
+                            ,"bonus": "+9/+4"
+                            ,"damage": "1d8+3/x3"
+                            ,"effects": ""
+                            ,"information": ""
+                        },
+                        {
+                            "attackType": "melee"
+                            ,"name": "dagger"
+                            ,"bonus": "+9/+4"
+                            ,"damage": "1d4+2/x3"
+                            ,"effects": ""
+                            ,"information": ""
+                        },
+                    ],
+                    "ranged": [
+                        {
+                            "attackType": "ranged"
+                            ,"name": "composite longbow"
+                            ,"bonus": "+11/+11/+6"
+                            ,"damage": "1d8+3/x3"
+                            ,"effects": ""
+                            ,"information": ""
+                        },
+                        {
+                            "attackType": "ranged"
+                            ,"name": "dagger"
+                            ,"bonus": "+10"
+                            ,"damage": "1d4+2/19-20"
+                            ,"effects": ""
+                            ,"information": ""
+                        }
+                    ],
+                    "touch": []
+                }
                 ,"specialAttacks": [
                     {
                         "name": "smite evil"
@@ -477,32 +532,37 @@ Meteor.startup(() => {
                 ,"bab": "+12"
                 ,"cmd": 23
                 ,"cmb": "+14"
-                ,"attacks": [
-                    {
-                        "attackType": "melee"
-                        ,"name": "evil outsider bane scimitar"
-                        ,"bonus": "+15/+10"
-                        ,"damage": "1d6+3/15-20"
-                        ,"effects": ""
-                        ,"information": ""
-                    },
-                    {
-                        "attackType": "melee"
-                        ,"name": "light hammer"
-                        ,"bonus": "+14/+9"
-                        ,"damage": "1d4+2"
-                        ,"effects": ""
-                        ,"information": ""
-                    },
-                    {
-                        "attackType": "ranged"
-                        ,"name": "light hammer"
-                        ,"bonus": "+11"
-                        ,"damage": "1d4+2"
-                        ,"effects": ""
-                        ,"information": ""
-                    },
-                ]
+                ,"attacks": {
+                    "melee": [
+                        {
+                            "attackType": "melee"
+                            ,"name": "evil outsider bane scimitar"
+                            ,"bonus": "+15/+10"
+                            ,"damage": "1d6+3/15-20"
+                            ,"effects": ""
+                            ,"information": ""
+                        },
+                        {
+                            "attackType": "melee"
+                            ,"name": "light hammer"
+                            ,"bonus": "+14/+9"
+                            ,"damage": "1d4+2"
+                            ,"effects": ""
+                            ,"information": ""
+                        },
+                    ],
+                    "ranged": [
+                        {
+                            "attackType": "ranged"
+                            ,"name": "light hammer"
+                            ,"bonus": "+11"
+                            ,"damage": "1d4+2"
+                            ,"effects": ""
+                            ,"information": ""
+                        },
+                    ],
+                    "touch": []
+                }
                 ,"specialAttacks": [
                     {
                         "name": "smite evil"
@@ -574,24 +634,29 @@ Meteor.startup(() => {
                 ,"bab": "+0"
                 ,"cmd": 11
                 ,"cmb": "+1"
-                ,"attacks": [
-                    {
-                        "attackType": "melee"
-                        ,"name": "improvised club"
-                        ,"bonus": "+1"
-                        ,"damage": "1d4+1"
-                        ,"effects": ""
-                        ,"information": ""
-                    },
-                    {
-                        "attackType": "ranged"
-                        ,"name": "sling"
-                        ,"bonus": "-1"
-                        ,"damage": "1d3+1"
-                        ,"effects": ""
-                        ,"information": ""
-                    },
-                ]
+                ,"attacks": {
+                    "melee": [
+                        {
+                            "attackType": "melee"
+                            ,"name": "improvised club"
+                            ,"bonus": "+1"
+                            ,"damage": "1d4+1"
+                            ,"effects": ""
+                            ,"information": ""
+                        },
+                    ],
+                    "ranged": [
+                        {
+                            "attackType": "ranged"
+                            ,"name": "sling"
+                            ,"bonus": "-1"
+                            ,"damage": "1d3+1"
+                            ,"effects": ""
+                            ,"information": ""
+                        },
+                    ],
+                    "touch": []
+                }
                 ,"specialAttacks": []
                 ,"spellLikeAbilities": []
                 ,"prepared_spells": {}

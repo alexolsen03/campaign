@@ -13,6 +13,20 @@ class StatBlock {
 
         $reactive(this).attach($scope);
     }
+
+    meleeAttacks() {
+        return this.selectedNpc.stats.attacks.melee;
+    }
+
+    rangedAttacks() {
+        return this.selectedNpc.stats.attacks.ranged;
+    }
+
+    touchAttacks() {
+        return this.selectedNpc.stats.attacks.touch;
+    }
+
+    //spells()
 }
 
 const name = 'statBlock';

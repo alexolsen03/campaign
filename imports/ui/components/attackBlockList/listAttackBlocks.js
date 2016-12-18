@@ -60,8 +60,7 @@ export default angular.module(name, [
         controllerAs: name,
         controller: AttackBlocksList,
         bindings: {
-            selectedC: '<',
-            onSelectedNpcChange: '&',
-            selectedNpc: '<'
+            selectedNpc: '<',
+            attacks: '='
         }
     })
