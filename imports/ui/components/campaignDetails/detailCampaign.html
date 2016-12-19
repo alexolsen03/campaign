@@ -1,11 +1,6 @@
 <navigation></navigation>
 <div class="detail-campaign">
     <div class="container">
-<!--         <div class="col-lg-4">
-            <list-selector list="campaignDetails.campaigns" add-function="campaignDetails.addCampaign(item)" destroy-function="campaignDetails.destroyCampaign(item)" show-focus="true"
-                    on-selected-item-change='campaignDetails.goToCampaign($event.selectedItem)'></list-selector>
-        </div> -->
-
         <div ng-repeat="campaign in campaignDetails.campaigns" class="col-lg-4">
             <div ng-click="campaignDetails.goToCampaign(campaign)" class="campaign-wrapper">
                 <h3>{{ campaign.cName }} <span><i ng-click="campaignDetails.remove(campaign)" class="fa fa-times removal"></i></span></h3>

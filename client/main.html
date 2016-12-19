@@ -1,18 +1,13 @@
 <navigation></navigation>
 <div class="container">
     <div class="row">
-        <div class="col-lg-3">
-
+        <div class="col-lg-3 left-home">
+            <div class="row campaign" ng-click="main.selectCampaign()" ng-class="{'active': main.typeFocus === 'campaign'}">
+                <div class="col-lg-12">
+                    <span class="campaign-title">{{ main.campaign.cName }}</span>
+                </div>
+            </div>
             <div uib-accordion close-others="false">
-
-<!--                 <div uib-accordion-group class="panel-default" heading="Campaigns" is-open="true">
-
-                    <list-selector selected-c="main.campaign" list="main.campaigns" add-function="main.addCampaign(item)" destroy-function="main.destroyCampaign(item)" show-focus="true"
-                    on-selected-item-change='main.resetDependents();
-                                    main.campaign = $event.selectedItem;
-                                    main.typeFocus = "na"'></list-selector>
-
-                </div> -->
 
                 <div uib-accordion-group class="panel-default" heading="Npcs" is-open="true">
 
@@ -46,13 +41,15 @@
             <div class="row">
                 <div class="col-lg-12">
 
+                    <campaign-info ng-if="main.typeFocus == 'campaign'" campaign="main.campaign"></campaign-info>
+
                     <npc-details ng-if='main.typeFocus == "npc"' selected-npc='main.selectedNpc' selected-c='main.campaign' save-func='main.npcSave(selectedNpc)'></npc-details>
 
                     <encounter-details ng-if='main.typeFocus=="enc"' selected-enc='main.selectedEnc' selected-c='main.campaign'></encounter-details>
 
                     <location-details ng-if='main.typeFocus == "loc"' selected-loc='main.selectedLoc' selected-c='main.campaign'></location-details>
 
-                    <div ng-if='main.typeFocus == "npc"' class="row">
+                    <div ng-if='main.typeFocus == "npc" || main.typeFocus == "campaign"' class="row">
                         <div class="col-lg-12 text-right">
                             <input class="btn" type="submit" value="Save" ng-click="main.saves[main.typeFocus]()"></input>
                         </div>

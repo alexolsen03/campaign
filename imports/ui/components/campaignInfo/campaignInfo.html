@@ -1,0 +1,30 @@
+<div class="campaign-info">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="about">About</label>
+                <textarea class="form-control" ng-model="campaignInfo.campaign.about" rows="5"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="notes">Notes</label>
+                <textarea class="form-control" ng-model="campaignInfo.campaign.notes" rows="5"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <label>Links</label>
+            <link-list list="campaignInfo.campaign.links"></link-list>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label for="todos">Todos</label>
+                <textarea class="form-control" ng-model="campaignInfo.campaign.todos" rows="5"></textarea>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,25 +1,20 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-
 import templateUrl from './main.html';
 
 // components
 import { name as Navigation } from '../imports/ui/components/navigation/navigation';
-
 import { name as CampaignsList } from '../imports/ui/components/campaignsList/listCampaigns';
-
 import { name as NpcsList } from '../imports/ui/components/npcsList/listNpcs';
 import { name as NpcDetails } from '../imports/ui/components/npcDetails/detailNpc';
 import { name as NpcAdd } from '../imports/ui/components/npcAdd/addNpc';
-
 import { name as EncountersList } from '../imports/ui/components/encountersList/listEncounters';
 import { name as EncountersDetail } from '../imports/ui/components/encounterDetails/detailEncounter';
-
 import { name as LocationsList } from '../imports/ui/components/locationsList/listLocations';
 import { name as LocationDetail } from '../imports/ui/components/locationDetails/detailLocation';
-
 import { name as ListSelector } from '../imports/ui/components/listSelector/listSelector';
 import { name as Register } from '../imports/ui/components/register/register';
+import { name as CampaignInfo } from '../imports/ui/components/campaignInfo/campaignInfo';
 
 // collections
 import { Campaigns } from '../imports/api/campaigns';
@@ -35,11 +30,11 @@ class Main {
         this.subscribe('campaigns');
 
         this.campaign = data.campaign;
+        this.selectCampaign = selectCampaign;
         this.npcSave = npcSave;
+        this.campaignSave = campaignSave;
         this.resetDependents = resetDependents;
 
-        this.addCampaign = addCampaign;
-        this.destroyCampaign = destroyCampaign;
         this.addNpc = addNpc;
         this.destroyNpc = destroyNpc;
         this.addEnc = addEnc;
@@ -49,7 +44,8 @@ class Main {
 
 
         this.saves = {
-            "npc": this.npcSave
+            "npc": this.npcSave,
+            "campaign": this.campaignSave
         }
 
         this.helpers({
@@ -60,14 +56,6 @@ class Main {
                 return Campaigns.findOne({_id: this.campaign._id})
             }
         });
-
-        function addCampaign(item){
-            Campaigns.insert(item);
-        }
-
-        function destroyCampaign(item){
-            Campaigns.remove({_id: item._id});
-        }
 
         function addNpc(item){
             item.owner = Meteor.userId();
@@ -133,6 +121,27 @@ class Main {
 
             Meteor.call('updateNpc', that.campaign._id, that.campaign.npcs[index]);
         }
+
+        function campaignSave(){
+            console.log(that.campaign);
+            // the following removes the $$hashkey property
+            that.campaign = angular.toJson(that.campaign);
+            that.campaign = angular.fromJson(that.campaign);
+
+            Campaigns.update({_id: that.campaign._id},
+                                                {
+                                                    $set: {
+                                                        "about": that.campaign.about,
+                                                        "notes" : that.campaign.notes,
+                                                        "links": that.campaign.links,
+                                                        "todos": that.campaign.todos
+                                                    }
+                                                });
+        }
+
+        function selectCampaign(){
+            this.typeFocus = 'campaign';
+        }
     }
 }
 
@@ -150,7 +159,8 @@ export default angular.module(name, [
         LocationsList,
         LocationDetail,
         ListSelector,
-        Register
+        Register,
+        CampaignInfo
     ]).component(name, {
         templateUrl,
         controllerAs: name,
@@ -177,8 +187,6 @@ function config($stateProvider) {
             });
         }else {
             Meteor.subscribe('campaigns', () => {
-                console.log('subscribed!');
-                console.log(Campaigns.findOne({_id: $stateParams.id}));
                 var campaign = Campaigns.findOne({_id: $stateParams.id});
                 deferred.resolve({campaign: campaign});
             });

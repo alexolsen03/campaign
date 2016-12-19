@@ -34,12 +34,9 @@ class NpcDetails {
         //////////////////////////////
 
         function populate(pregen){
-            console.log(pregen);
-
             if(pregen){
                 Object.keys(pregen).forEach(function(key) {
                     if(key !== '_id' && key !== 'name'){
-                        console.log('setting ', key);
                         if(key === 'links'){
                             if(!that.selectedNpc[key]){
                                 that.selectedNpc[key] = [];
@@ -50,8 +47,6 @@ class NpcDetails {
                         }
                     }
                 });
-
-                console.log(that.selectedNpc);
             }
         }
     }
