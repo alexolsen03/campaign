@@ -123,6 +123,9 @@
     &.secondary {
         background-color: $secondary-lt;
     }
+    &.gray {
+        background-color: $gray;
+    }
 }
 
 .filter-box {

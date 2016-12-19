@@ -10,15 +10,20 @@ class NpcAdd {
         'ngInject';
 
         $reactive(this).attach($scope);
-
-        console.log(this.selectedC);
     }
 
     submitNpc() {
         this.npc.owner = Meteor.userId();
         this.npc.id = Date.now();
-        this.npc.stats = {};
+        this.npc.stats = {
+            attacks: {
+                melee: [],
+                ranged: [],
+                touch: []
+            }
+        };
         this.npc.links = [];
+        this.npc.tags = [];
 
  //       Campaigns.update({_id: this.selectedC._id}, {$push: {npcs: this.npc}});
 
